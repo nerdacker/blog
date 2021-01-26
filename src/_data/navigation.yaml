@@ -1,0 +1,6 @@
+---
+items:
+  - text: Über Uns
+    url: "/aboutus"
+  - text: Beiträge
+    url: "/blog"
