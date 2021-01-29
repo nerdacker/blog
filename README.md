@@ -1,5 +1,7 @@
 # Coding blog powered by Eleventy
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1aaa2884-365d-48eb-95a9-f736983a34d0/deploy-status)](https://app.netlify.com/sites/modest-goldwasser-a6d2f3/deploys)
+
 ### Technologies used:
 
 - [Eleventy](https://www.11ty.dev/)
