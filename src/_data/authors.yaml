@@ -3,7 +3,8 @@ authors:
   - name: Alessio Bisgen
     job: Full Stack Developer
     location: Karlsruhe, Baden-Württemberg
-    description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+    description_de: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+    description_en: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
     website: http://alessiobisgen.de
     photo: /static/img/alessio.jpg
     socials:
@@ -11,11 +12,13 @@ authors:
       github: https://github.com/acebarn
       instagram: https://www.instagram.com/acebarn/
       stackoverflow: https://stackoverflow.com/users/3244078/acb
+      facebook: facebook.com
   
   - name: Rainer Zufall
     job: Unbezahlter Praktikant
     location: Stuttgart, Baden-Württemberg
-    description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+    description_de: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+    description_en: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
     website: http://alessiobisgen.de
     photo: https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg
     socials:
@@ -27,7 +30,8 @@ authors:
   - name: Jane Doe
     job: Professionelle Höhenschauklerin
     location: Gebirge
-    description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+    description_de: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+    description_en: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
     website: http://alessiobisgen.de
     photo: https://images.pexels.com/photos/1122868/pexels-photo-1122868.jpeg
     socials:

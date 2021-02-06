@@ -10,14 +10,22 @@ module.exports = function (eleventyConfig) {
   // Merge data instead of overriding
   eleventyConfig.setDataDeepMerge(true);
 
-  // human readable date
-  eleventyConfig.addFilter("readableDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
-      "dd LLL yyyy"
-    );
+  eleventyConfig.addCollection("posts_de", function (collection) {
+    return collection.getFilteredByGlob("./src/de/posts/*.md");
   });
 
-  eleventyConfig.addFilter("filterCategory", function(postlist,name) {
+  eleventyConfig.addCollection("posts_en", function (collection) {
+    return collection.getFilteredByGlob("./src/en/posts/*.md");
+  });
+
+  // date filter (localized)
+  eleventyConfig.addNunjucksFilter("localizedDate", function (date, localeRegion) {
+    localeRegion = localeRegion ? localeRegion : "de-DE";
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(date).toLocaleDateString(localeRegion, options);
+  });
+
+  eleventyConfig.addFilter("filterCategory", function (postlist, name) {
     return postlist.filter(post => post.data.tags.includes(name));
   });
 

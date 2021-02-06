@@ -1,0 +1,74 @@
+<div class="{{ 'lg:fixed' if path == 'home' }} w-full bg-black rounded-b-3xl">
+    <nav class="flex items-center justify-center lg:justify-between flex-wrap p-6 lg:px-0 container mx-auto" x-data="{ isopen: false }" @keydown.escape="isopen = false">
+
+        <div class="flex items-center">
+            <a href="/{{locale}}/" class="text-white font-serif font-bold text-3xl">{{settings.name}}</a>
+        </div>
+
+        <!--Toggle button (hidden on large screens)-->
+        <button @click="isopen = !isopen" type="button" class="ml-auto block lg:hidden px-2 text-primary-500 hover:text-primary-500 focus:outline-none focus:text-primary-500" :class="{ 'transition transform-180': isopen }" aria-label="menu">
+            <svg class="h-6 w-6 fill-current text-white" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+                <path x-show="isopen" fill-rule="evenodd" clip-rule="evenodd" d="m18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"/>
+                <path x-show="!isopen" fill-rule="evenodd" d="m4 5h16a1 1 0 0 1 0 2h4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2h4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2h4a1 1 0 0 1 0-2z"/>
+            </svg>
+        </button>
+
+        <!--Menu-->
+        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto text-center " :class="{ 'block shadow-3xl': isopen, 'hidden': !isopen }" @click.away="isopen = false" x-show.transition="true">
+
+            {% if navigation.items %}
+
+                <ul class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center">
+                    {% for item in navigation.items %}
+                        <li class="nav__item mr-3">
+                            <a @click="isopen = false" class="text-ml inline-block text-white no-underline hover:{{colors.link}} py-2 px-4" href="/{{locale}}/{{item.url_part}}">{{ item['text_'+locale] }}</a>
+                        </li>
+                    {% endfor %}
+                    {# <li>{{language.code}}</li> #}
+                    {# <div style="width: 30px; height: 30px; background-image: url(data:image/svg+xml;base64,{{language.flag}})"></div> #}
+
+                    {% set currentflag = site
+                        .languages[0]
+                        .flag %}
+                    {% for language in site.languages %}
+                        {% if language.code === locale %}
+                            {% set currentflag = language.flag %}
+                        {% endif %}
+                    {% endfor %}
+
+                    <div x-data="{ dropdownOpen: false }" class="relative">
+                        <button @click="dropdownOpen = !dropdownOpen" class="block h-12 w-12 rounded-full overflow-hidden focus:outline-none">
+                            <div style="width: 30px; height: 30px; background-image: url(data:image/svg+xml;base64,{{currentflag}})"></div>
+                        </button>
+
+                        <!-- Dropdown Body -->
+                        <div x-show="dropdownOpen" @click="dropdownOpen = false" class="absolute right-0 w-40 mt-2 py-2 bg-white border rounded shadow-xl">
+                            {% for language in site.languages %}
+
+                                {# default: auf homepage für sprache setzen #}
+                                {% set translatedUrl = "/" + language.code + "/" %}
+
+                                {# über alle beiträge iterieren #}
+                                {% for item in collections.all %}
+                                    {% if item.data.translationKey == translationKey and item.data.locale == language.code %}
+                                        {% set translatedUrl = item.url %}
+                                    {% endif %}
+                                    {% endfor%}
+
+                                    {% if language.flag !== currentflag %}
+                                        <a href="{{translatedUrl}}" class="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:{{colors.linkbg}} hover:text-white">
+                                            <div style="width: 30px; height: 30px; background-image: url(data:image/svg+xml;base64,{{language.flag}}); position: absolute;"></div>
+                                            <span class="inline-block align-middle">{{language.label}}</span>
+                                        </a>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <!-- // Dropdown Body -->
+                        </div>
+
+                    </ul>
+
+                {% endif %}
+            </div>
+        </nav>
+    </div>

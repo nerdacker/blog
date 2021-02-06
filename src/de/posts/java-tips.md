@@ -1,5 +1,6 @@
 ---
-title: Be Awesome at Java
+title: Werde ein Java Profi
+translationKey: java-tips
 description: Bring to the table win-win survival strategies to ensure proactive
   domination. At the end of the day, going forward, a new normal that has
   evolved from generation X is on the runway heading towards a streamlined cloud
@@ -7,7 +8,9 @@ description: Bring to the table win-win survival strategies to ensure proactive
 date: 2020-09-23T15:13:13.021Z
 author: Rainer Zufall
 image: https://www.webstoemp.com/img/blogposts/metal-drawers.jpg
-tags: java
+tags: 
+  - java
+  - awesome
 ---
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.

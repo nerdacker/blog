@@ -1,0 +1,21 @@
+---
+pageTitle: Index
+templateClass: 'index'
+layout: landing
+---
+
+<script>
+  var locale = {
+    lang: navigator.language || navigator.userLanguage
+  }
+  nunjucks.renderString("{{ lang }}", locale)
+</script>
+
+{% block content %}
+  <h1 class="">Enter website</h1>
+  {% for lgg in site.languages %}
+    {% set translatedUrl = "/" + lgg.code + "/" %}
+    <a href="{{ translatedUrl }}">{{ lgg.code }}</a>
+  {% endfor %}
+  <p class="">Choose language above</p>
+{% endblock %}

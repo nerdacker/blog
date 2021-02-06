@@ -1,6 +1,8 @@
 ---
 items:
-  - text: Über Uns
-    url: "/aboutus"
-  - text: Beiträge
-    url: "/blog"
+  - text_de: Über Uns
+    text_en: About Us
+    url_part: "pages/aboutus"
+  - text_de: Beiträge
+    text_en: Posts
+    url_part: "pages/blog"

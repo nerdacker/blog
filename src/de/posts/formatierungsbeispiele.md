@@ -1,5 +1,6 @@
 ---
 title: Formatierungsbeispiele
+translationKey: formatting-examples
 description: Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
 date: 2021-01-26
 author: Alessio Bisgen

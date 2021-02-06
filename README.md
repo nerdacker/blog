@@ -13,7 +13,7 @@
 ### 1\. Install dependencies
 
 ```
-npm install
+yarn
 ```
 
 ### 2\. Build the project to generate the first CSS
@@ -21,11 +21,11 @@ npm install
 This step is only required the very first time.
 
 ```
-npm run build
+yarn run build
 ```
 
 ### 3\. Run Eleventy
 
 ```
-npm run start
+yarn run start
 ```
