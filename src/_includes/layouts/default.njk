@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{ metaTitle }}</title>
+    {% block head %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    {% if prism == true %}
+      <link rel="stylesheet" type="text/css" href="/static/css/prism-tomorrow.css">
+    {% endif %}
+  </head>
+  <body>
+    {% include "partials/navbar.njk" %}
+    {% block content %}{% endblock %}
+    {% include "partials/footer.njk" %}
+    <script src="/static/js/alpine.js"></script>
+  </body>
+</html>

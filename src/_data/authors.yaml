@@ -1,12 +1,12 @@
 ---
 authors:
-  - name: Alessio Bisgen
+  - name: Umberto Bolognese
     job: Full Stack Developer
     location: Karlsruhe, Baden-Württemberg
     description_de: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
     description_en: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
     website: http://alessiobisgen.de
-    photo: /static/img/alessio.jpg
+    photo: https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
     socials:
       twitter: https://twitter.com/ACBisgen
       github: https://github.com/acebarn

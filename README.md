@@ -29,3 +29,9 @@ yarn run build
 ```
 yarn run start
 ```
+
+## Credits
+**Icons:** 
+- [heroicons](https://heroicons.dev/)
+- [simpleicons](https://simpleicons.org/)
+
