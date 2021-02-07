@@ -1,14 +1,14 @@
 ---
 categories:
   - name: allgemein
-    title_de: "Allgemein"
-    title_en: "Basics"
+    de: "Allgemein"
+    en: "Basics"
   - name: java
-    title_de: "Java"
-    title_en: "Java"
+    de: "Java"
+    en: "Java"
   - name: smarthome
-    title_de: "Smart Home"
-    title_en: "Smart Home"
+    de: "Smart Home"
+    en: "Smart Home"
   - name: ethics
-    title_de: "Cyber-Ethik"
-    title_en: "Cyber-Ethics"
+    de: "Cyber-Ethik"
+    en: "Cyber-Ethics"

@@ -11,14 +11,7 @@ tags:
   - smarthome
 ---
 
-When home automation just seems to work, it is always the result of hard work. Home automation is fascinating and requires a considerable investment of your time. Here are some key considerations especially for new users. To be successful, you will need to:
-
-- Start slowly and proceed one step at a time
-- Be prepared to learn
-- Remain flexible in how you want to achieve your goal
-- Celebrate all the small successes
-
-Remember, openHAB is just a computer program. The computer will only do what you tell it to do. openHAB can provide many default solutions that are easy to setup. On the flip side, the more you insist that everything should look and work exactly the way you want it, the more work you will have to invest. openHAB is fully customizable, but doing so will require substantial effort on your part.
+Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen Umständen, in denen Mühen und Schmerz ihm große Freude bereiten können. Um ein triviales Beispiel zu nehmen, wer von uns unterzieht sich je anstrengender körperlicher Betätigung, außer um Vorteile daraus zu ziehen? Aber wer hat irgend ein Recht, einen Menschen zu tadeln, der die Entscheidung trifft, eine Freude zu genießen, die keine unangenehmen Folgen hat, oder einen, der Schmerz vermeidet, welcher keine daraus resultierende Freude nach sich zieht? Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen Umständen, in denen Mühen und Schmerz ihm große Freude bereiten können.
 
 ## Oli's Iframe
 

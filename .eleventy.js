@@ -22,7 +22,19 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksFilter("localizedDate", function (date, localeRegion) {
     localeRegion = localeRegion ? localeRegion : "de-DE";
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(date).toLocaleDateString(localeRegion, options);
+    const result = new Date(date).toLocaleDateString(localeRegion, options);
+    // console.log('Processing Date', result);
+    return result;
+  });
+
+  eleventyConfig.addNunjucksFilter("getLocalizedTag", function (tag, categories, locale) {
+    const matchingCats = categories.filter(cat => {
+      return cat.name === tag;
+    });
+    if (matchingCats.length === 0) {
+      return tag;
+    }
+    return matchingCats[0][locale];
   });
 
   eleventyConfig.addFilter("filterCategory", function (postlist, name) {

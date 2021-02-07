@@ -10,7 +10,7 @@ tags:
 
 ---
 
-Hier ein paar Formatierungsbeispiele
+Some formatting examples
 
 ## h2 Heading
 

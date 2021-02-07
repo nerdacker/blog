@@ -3,7 +3,7 @@ title: Will Machines do our work?
 translationKey: new-work
 description: Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution.
 date: 2020-09-02
-author: Surjith S M
+author: Phil Losoph
 tags:
   - ethics
 ---
@@ -12,8 +12,6 @@ Leverage agile frameworks to provide a robust synopsis for high level overviews.
 
 ## Section Header
 
-<a href="{{ '/posts/my-first-post/' | url }}">First post</a>
-<a href="{{ '/posts/my-third-big-post/' | url }}">Third post</a>
 
 Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
 
