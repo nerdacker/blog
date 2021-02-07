@@ -34,4 +34,7 @@ yarn run start
 **Icons:** 
 - [heroicons](https://heroicons.dev/)
 - [simpleicons](https://simpleicons.org/)
+- [svgomg](https://jakearchibald.github.io/svgomg/) _svg minimization_
+- [base64encoder](https://www.base64encode.org/) _base64 transformation for better yaml storage_
+
 
