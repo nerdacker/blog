@@ -1,0 +1,48 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+permalink: /{{locale}}/tags/{{tag}}/
+layout: default
+---
+
+<h1 class="font-bold text-5xl">Posts mit dem Tag “{{tag}}”</h1>
+
+<div class="container max-w-3xl mt-6 px-6">
+  <section class="mt-15">
+    {% set taglist = collections[tag] %}
+    {% for post in taglist | reverse %}
+      {% if '/'+locale+'/' in post.url %}
+        <article class="my-8">
+          <h2 class="font-bold text-3xl text-gray-900 mb-2">
+            <a href="{{ post.url | url }}">
+              {% if post.data.title %}
+                {{ post.data.title }}
+              {% else %}
+                        Unbenannt
+                    {% endif %}
+            </a>
+          </h2>
+          <p class="text-base leading-6 text-gray-500 mb-3">
+            <time>{{ post.date | localizedDate(localeRegion) }} von <a>{{ post.data.author }}</a>
+            </time>
+          </p>
+          {% if post.data.description %}
+            <p class="text-lg text-gray-500 mb-3">
+              {{ post.data.description }}
+            </p>
+          {% endif %}
+
+          <p>
+            <a href="{{ post.url | url }}" class="text-indigo-500 font-bold text-lg">
+                    Mehr lesen →
+                </a>
+          </p>
+
+        </article>
+      {% endif %}
+    {% endfor %}
+
+  </section>
+</div>

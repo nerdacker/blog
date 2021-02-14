@@ -1,4 +1,4 @@
-<div class="{{ 'lg:fixed' if path == 'home' }} w-full bg-black rounded-b-3xl">
+<div class="{{ 'lg:fixed' if path == 'home' }} w-full bg-black">
     <nav class="flex items-center justify-center lg:justify-between flex-wrap p-6 lg:px-0 container mx-auto" x-data="{ isopen: false }" @keydown.escape="isopen = false">
 
         <div class="flex items-center">
@@ -24,8 +24,6 @@
                             <a @click="isopen = false" class="text-ml inline-block text-white no-underline hover:{{colors.link}} py-2 px-4" href="/{{locale}}/{{item.url_part}}">{{ item['text_'+locale] }}</a>
                         </li>
                     {% endfor %}
-                    {# <li>{{language.code}}</li> #}
-                    {# <div style="width: 30px; height: 30px; background-image: url(data:image/svg+xml;base64,{{language.flag}})"></div> #}
 
                     {% set currentflag = site
                         .languages[0]
