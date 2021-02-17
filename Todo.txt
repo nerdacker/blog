@@ -1,5 +1,3 @@
 - dark mode
 - asciidoc
-- kurze autoren-bio unter artikel (siehe caschys blog)
 - individuelle autoren-seite
-- tags klickbar um auf sammlung zu gelangen

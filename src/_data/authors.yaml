@@ -39,4 +39,15 @@ authors:
       github: https://github.com/acebarn
       instagram: https://www.instagram.com/acebarn/
       stackoverflow: https://stackoverflow.com/users/3244078/acb
+
+  - name: Phil Losoph
+    job: Technical Assistant
+    location: Gebirge
+    description_de: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+    description_en: If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages.
+    photo: https://images.pexels.com/photos/35065/homeless-man-color-poverty.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500
+    socials:
+      twitter: https://twitter.com/ACBisgen
+
+  
     

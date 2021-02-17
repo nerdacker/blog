@@ -1,0 +1,18 @@
+---
+pagination:
+  data: authors.authors
+  size: 1
+  alias: author
+permalink: /{{locale}}/author/{{author.name | slug}}/
+layout: default
+---
+<div class="container max-w-3xl mt-6 px-6">
+  <h1 class="font-bold text-5xl">Hello, I'm {{author.name}}</h1>
+
+  <div class="w-full lg:w-2/5 rounded-lg shadow-2xl">
+        <div class="h-full bg-cover bg-center bg-no-repeat rounded-lg lg:rounded-r-lg lg:rounded-l-none hidden lg:block"
+            style="background-image: url('{{author.photo}}')"></div>
+    </div>
+  <div class="container max-w-3xl mt-6 px-6">{{author['description_'+locale]}}</div>
+
+</div>

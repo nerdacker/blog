@@ -1,0 +1,20 @@
+<div class=" flex items-start h-auto flex-wrap mx-auto my-12 ">
+    <a href="/{{locale}}/author/{{author | slug}}">
+        <div id="profile" class="w-full rounded-lg shadow-2xl bg-white opacity-75 mx-6 border border-black">
+
+            <div class="grid grid-rows-3 grid-flow-col gap-4">
+
+                <div class="row-span-3 m-3 self-center">
+                    <div class="block rounded-full shadow-xl mx-auto h-48 w-48 bg-cover bg-center"
+                style="background-image: url('{{writer.photo}}')"></div>
+                </div>
+                <div class="col-span-2 self-end">
+                    <h1 class="text-3xl text-left font-bold">{{writer.name}}</h1>
+                </div>
+                <div class="row-span-2 col-span-2 self-start">
+                    <p class="text-sm">{{writer['description_'+locale]}}</p>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

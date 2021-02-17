@@ -9,7 +9,7 @@
             <div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
                 style="background-image: url('{{author.photo}}')"></div>
 
-            <h1 class="text-3xl font-bold pt-8 lg:pt-0">{{author.name}}</h1>
+            <a href="/{{locale}}/author/{{author.name | slug}}"><h1 class="text-3xl font-bold pt-8 lg:pt-0">{{author.name}}</h1></a>
             <div class="mx-auto lg:mx-0 w-full pt-3 border-b-2 border-black opacity-25"></div>
 
             <!-- Author info grid -->
