@@ -1,3 +1,44 @@
-- dark mode
 - asciidoc
-- individuelle autoren-seite
+- dark mode
+- suche
+- farben für tags
+- multi-author artikel
+- kommentare
+- read time generator
+- teilen (mobile first)
+- telegram channel via CI/CD
+
+Names:
+- I'll be hack
+- Four For The Code
+- SOJA-Coding
+- nerdacker
+- iotsociety
+- hackingsociety
+- hack in progress
+- 
+
+Tasks:
+- domain organisieren (alessio)
+- asciidoc implementieren (joshua, alessio)
+- styling (oli, sebastian)
+- abstract aus metadaten in artikel einbinden und besonders hervorheben (alessio)
+- hosting alternativen vergleichen (-> erstmal bei alessios netcup parken)
+- github organization status (joshua)
+
+Themen / Kategorien
+- Software und Programmieren
+- Hardware und Technik
+- Arbeit / Prozesse / Vorgehensweisen
+- Selbstoptimierung
+- Bildung (Bücher, Wissensquellen)
+- Ethik / Klima / Gesellschaft
+- Computerspiele + Unterhaltungselektronik
+
+--> Abweichung von Techinkbezug toleriert solange es mit Arbeitsalltag zusammenhängt
+
+Hard facts:
+- Länge der Artikel? -> irrelevant
+- Abstract
+
+https://nerdacker.netlify.app/
