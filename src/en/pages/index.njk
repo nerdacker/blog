@@ -1,6 +1,7 @@
 ---
 permalink: /{{ locale }}/index.html
 layout: default
+translationKey: home
 ---
 
 {% set metaTitle = site[locale].metaTitle %}
@@ -8,7 +9,7 @@ layout: default
 {% set metaImage = site[locale].metaImage %}
 
 {% block content %}
-<div class="container mx-auto lg:h-screen flex flex-col justify-center items-center">
+<div class="container mx-auto flex flex-col justify-center items-center">
     <h1 class="font-sans">
         Welcome to our 
         <strong class="bg-clip-text {{colors.textaccent}}">

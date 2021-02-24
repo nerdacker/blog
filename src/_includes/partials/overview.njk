@@ -3,7 +3,7 @@
 
     {% for category in categories.categories %}
         <div class="p-5 border rounded border-gray-200 hover:border-purple-400">
-            <h3>{{category['title_' + locale]}}</h3>
+            <a href="/{{locale}}/tags/{{category.name}}"><h3>{{category[locale]}}</h3></a>
             <ul>
                 {% set postslist = collections['posts_' + locale] | filterCategory(category.name) %}
                 {% for post in postslist %}

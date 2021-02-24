@@ -1,14 +1,59 @@
 ---
 categories:
-  - name: allgemein
-    de: "Allgemein"
-    en: "Basics"
+  - name: software
+    de: "Software"
+    en: "software"
+  - name: programming
+    de: "Programmierung"
+    en: "programming"
+  - name: hardware
+    de: "Hardware"
+    en: "hardware"
+  - name: technology
+    de: "Technologie"
+    en: "technology"
+  - name: work
+    de: "Arbeit"
+    en: "work"
+  - name: workflows
+    de: "Prozesse"
+    en: "Workflows"
+  - name: howto
+    de: "HowTo"
+    en: "howto"
+  - name: self-improvement
+    de: "Selbstoptimierung"
+    en: "self improvement"
+  - name: education
+    de: "Bildung"
+    en: "education"
+  - name: books
+    de: "Bücher"
+    en: "books"
+  - name: ethics
+    de: "Ethik"
+    en: "ethics"
+  - name: climate
+    de: "Klimawandel"
+    en: "climate change"
+  - name: society
+    de: "Gesellschaft"
+    en: "society"
+  - name: games
+    de: "Computerspiele"
+    en: "video games"
+  - name: consumer-electronics
+    de: "Unterhaltungselektronik"
+    en: "consumer electronics"
   - name: java
     de: "Java"
-    en: "Java"
+    en: "java"
+  - name: python
+    de: "Python"
+    en: "python"
   - name: smarthome
     de: "Smart Home"
-    en: "Smart Home"
-  - name: ethics
-    de: "Cyber-Ethik"
-    en: "Cyber-Ethics"
+    en: "smart home"
+  - name: zigbee
+    de: "Zigbee"
+    en: "zigbee"

@@ -1,7 +1,7 @@
 ---
 title: Formatierungsbeispiele
 translationKey: formatting-examples
-description: Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+description: Diese kurze Übersicht zeigt verwendungsmöglichkeiten von Markdown beim Schreiben von Artikeln.
 date: 2021-01-26
 author: Alessio Bisgen
 image: https://cdn.britannica.com/25/93825-050-D1300547/collection-newspapers.jpg
@@ -91,12 +91,20 @@ Sample text here...
 
 Syntax highlighting
 
-```js
-var foo = function (bar) {
-  return bar++;
-};
+```java
+public class AsciiValue {
 
-console.log(foo(5));
+public static void main(String[] args) {
+
+      char ch = 'a';
+      int ascii = ch;
+      // You can also cast char to int
+      int castAscii = (int) ch;
+
+      System.out.println("The ASCII value of " + ch + " is: " + ascii);
+      System.out.println("The ASCII value of " + ch + " is: " + castAscii);
+  }
+}
 ```
 
 ## Tables
@@ -118,3 +126,7 @@ Autoconverted link https://github.com/nodeca/pica
 ## Images
 
 ![Minion](https://octodex.github.com/images/minion.png)
+
+## Iframes
+
+<iframe src="https://stackblitz.com/edit/rxjs-8vvgcd?file=index.ts" width="600" height="800"></iframe>

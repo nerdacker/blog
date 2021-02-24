@@ -1,6 +1,7 @@
 ---
 permalink: /{{ locale }}/index.html
 layout: default
+translationKey: home
 ---
 
 {% set metaTitle = site[locale].metaTitle %}
@@ -8,16 +9,16 @@ layout: default
 {% set metaImage = site[locale].metaImage %}
 
 {% block content %}
-<div class="container mx-auto lg:h-screen flex flex-col justify-center items-center">
+<div class="container mx-auto flex flex-col justify-center items-center">
     <h1 class="font-sans">
-        Willkommen auf unserem 
+        Willkommen auf dem
         <strong class="bg-clip-text {{colors.textaccent}}">
-            Blog
+        Nerdacker
         </strong>
     </h1>
 
     <p>
-        Hier veröffentlichen wir Zeuch und mehr!
+        Content garantiert aus ökologischer (Üb)Erzeugung
     </p>
 
     {% include "partials/overview.njk" %}

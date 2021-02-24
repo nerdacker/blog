@@ -1,7 +1,7 @@
 ---
 title: How to format
 translationKey: formatting-examples
-description: Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+description: This short overview grants the ultimate introduction to the word of markdown-flavored article writing.
 date: 2021-01-26
 author: Alessio Bisgen
 image: https://cdn.britannica.com/25/93825-050-D1300547/collection-newspapers.jpg
