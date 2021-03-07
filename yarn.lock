@@ -53,6 +53,21 @@
     time-require "^0.1.2"
     valid-url "^1.0.9"
 
+"@asciidoctor/cli@3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@asciidoctor/cli/-/cli-3.4.0.tgz#586e9133f3367c7b3236631197f4b621890d9227"
+  integrity sha512-jOtxA0I6zB+6z+GGwm9+xhlmGTqCTkFPE902L6fauFlE6v7LxjhLYNxvjDVyn0zMrFLybvoSRcAnM3DcticNoQ==
+  dependencies:
+    yargs "15.3.1"
+
+"@asciidoctor/core@2.2.1", "@asciidoctor/core@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@asciidoctor/core/-/core-2.2.1.tgz#eac0361a85b46f2ef2a9d19d73e3875bf94715d4"
+  integrity sha512-wdVseZjCcBvFfWSsCGyyvJkSQJ9UmXDdTDKnL+HerM12XQq4eWtk7lniSIKO459ipqImcsrueib47EtkzzRjLw==
+  dependencies:
+    asciidoctor-opal-runtime "0.3.0"
+    unxhr "1.0.1"
+
 "@babel/code-frame@^7.0.0":
   version "7.12.11"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.12.11.tgz#f4ad435aa263db935b8f10f2c552d23fb716a63f"
@@ -335,6 +350,34 @@ asap@^2.0.3, asap@~2.0.3:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
   integrity sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
+
+asciidoctor-html5s@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/asciidoctor-html5s/-/asciidoctor-html5s-0.5.0.tgz#da814b0259de8c89ac3476df170f18e8c4f2d71b"
+  integrity sha512-YHO6vIsBzc9bwu1kCeOfzgIKuSOFx0m9QhpxsHuVNUZy9QYms56AVH6nUmWhw83rLZlCIg24HLvq4LghGdLXNA==
+
+asciidoctor-opal-runtime@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/asciidoctor-opal-runtime/-/asciidoctor-opal-runtime-0.3.0.tgz#df327a870ddd3cd5eb0e162d64ed4dcdd3fe3fee"
+  integrity sha512-YapVwl2qbbs6sIe1dvAlMpBzQksFVTSa2HOduOKFNhZlE9bNmn+moDgGVvjWPbzMPo/g8gItyTHfWB2u7bQxag==
+  dependencies:
+    glob "7.1.3"
+    unxhr "1.0.1"
+
+asciidoctor-prism-extension@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/asciidoctor-prism-extension/-/asciidoctor-prism-extension-2.0.6.tgz#b74d84f55cbff2710cb73447b33a2928e31b199e"
+  integrity sha512-BiB2t7epQkAA4W8C7DlLqyGUgF2BWQ3NAyOuTwWED69fBoJhrRQbRo2VoVICBBiYrd/7jmKOw1weo5bypcgdPA==
+  dependencies:
+    prismjs "^1.15.0"
+
+asciidoctor@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/asciidoctor/-/asciidoctor-2.2.1.tgz#4e29fe7195d97f75b36c91ad8e3448191b9ab0fa"
+  integrity sha512-adH/pDPDZCd4eb1ku7N8WepN+O6Yl0lVQPWE/ep7+0BFkBm4P/Sx8DUqzZ+X+nG6WSZlma5Uu0gNuDgrc7etFg==
+  dependencies:
+    "@asciidoctor/cli" "3.4.0"
+    "@asciidoctor/core" "2.2.1"
 
 asn1@~0.2.3:
   version "0.2.4"
@@ -1525,6 +1568,11 @@ esutils@^2.0.2:
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.3.tgz#74d2eb4de0b8da1293711910d50775b9b710ef64"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
 
+eta@^1.12.1:
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/eta/-/eta-1.12.1.tgz#d985766591676c323f02dfc48a67539212745937"
+  integrity sha512-H8npoci2J/7XiPnVcCVulBSPsTNGvGaINyMjQDU8AFqp9LGsEYS88g2CiU+d01Sg44WtX7o4nb8wUJ9vnI+tiA==
+
 etag@1.8.1, etag@^1.8.1, etag@~1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
@@ -1723,6 +1771,18 @@ glob-parent@^5.1.0, glob-parent@~5.1.0:
   integrity sha512-FnI+VGOpnlGHWZxthPGR+QhR78fuiK0sNLkHQv+bL9fQi57lNNdquIbna/WrfROrolq8GK5Ek6BiMwqL/voRYQ==
   dependencies:
     is-glob "^4.0.1"
+
+glob@7.1.3:
+  version "7.1.3"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.3.tgz#3960832d3f1574108342dafd3a67b332c0969df1"
+  integrity sha512-vcfuiIxogLV4DlGBHIUOwI0IbrJ8HWPc4MU7HzviGeNho/UJDfi6B5p3sHeWIQ0KGIU0Jpxi5ZHxemQfLkkAwQ==
+  dependencies:
+    fs.realpath "^1.0.0"
+    inflight "^1.0.4"
+    inherits "2"
+    minimatch "^3.0.4"
+    once "^1.3.0"
+    path-is-absolute "^1.0.0"
 
 glob@^7.0.0, glob@^7.0.3, glob@^7.1.2, glob@^7.1.3:
   version "7.1.6"
@@ -3488,7 +3548,7 @@ pretty@^2.0.0:
     extend-shallow "^2.0.1"
     js-beautify "^1.6.12"
 
-prismjs@^1.21.0, prismjs@^1.23.0:
+prismjs@^1.15.0, prismjs@^1.21.0, prismjs@^1.23.0:
   version "1.23.0"
   resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.23.0.tgz#d3b3967f7d72440690497652a9d40ff046067f33"
   integrity sha512-c29LVsqOaLbBHuIbsTxaKENh1N2EQBOHaWv7gkHN4dgRbxSREqDnDbtFJYdpPauS4YCplMSNCABQ6Eeor69bAA==
@@ -4500,6 +4560,11 @@ unquote@~1.1.1:
   resolved "https://registry.yarnpkg.com/unquote/-/unquote-1.1.1.tgz#8fded7324ec6e88a0ff8b905e7c098cdc086d544"
   integrity sha1-j97XMk7G6IoP+LkF58CYzcCG1UQ=
 
+unxhr@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/unxhr/-/unxhr-1.0.1.tgz#92200322d66c728993de771f9e01eeb21f41bc7b"
+  integrity sha512-MAhukhVHyaLGDjyDYhy8gVjWJyhTECCdNsLwlMoGFoNJ3o79fpQhtQuzmAE4IxCMDwraF4cW8ZjpAV0m9CRQbg==
+
 upper-case@^1.1.1:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/upper-case/-/upper-case-1.1.3.tgz#f6b4501c2ec4cdd26ba78be7222961de77621598"
@@ -4734,7 +4799,7 @@ yaml@^1.10.0:
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.0.tgz#3b593add944876077d4d683fee01081bd9fff31e"
   integrity sha512-yr2icI4glYaNG+KWONODapy2/jDdMSDnrONSjblABjD9B4Z5LgiircSt8m8sRZFNi08kG9Sm0uSHtEmP3zaEGg==
 
-yargs-parser@^18.1.2:
+yargs-parser@^18.1.1, yargs-parser@^18.1.2:
   version "18.1.3"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-18.1.3.tgz#be68c4975c6b2abf469236b0c870362fab09a7b0"
   integrity sha512-o50j0JeToy/4K6OZcaQmW6lyXXKhq7csREXcDwk2omFPJEwUNOVtJKvmDr9EI1fAJZUyZcRF7kxGBWmRXudrCQ==
@@ -4746,6 +4811,23 @@ yargs-parser@^20.2.2:
   version "20.2.4"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.2.4.tgz#b42890f14566796f85ae8e3a25290d205f154a54"
   integrity sha512-WOkpgNhPTlE73h4VFAFsOnomJVaovO8VqLDzy5saChRBFQFBoMYirowyW+Q9HB4HFF4Z7VZTiG3iSzJJA29yRA==
+
+yargs@15.3.1:
+  version "15.3.1"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-15.3.1.tgz#9505b472763963e54afe60148ad27a330818e98b"
+  integrity sha512-92O1HWEjw27sBfgmXiixJWT5hRBp2eobqXicLtPBIDBhYB+1HpwZlXmbW2luivBJHBzki+7VyCLRtAkScbTBQA==
+  dependencies:
+    cliui "^6.0.0"
+    decamelize "^1.2.0"
+    find-up "^4.1.0"
+    get-caller-file "^2.0.1"
+    require-directory "^2.1.1"
+    require-main-filename "^2.0.0"
+    set-blocking "^2.0.0"
+    string-width "^4.2.0"
+    which-module "^2.0.0"
+    y18n "^4.0.0"
+    yargs-parser "^18.1.1"
 
 yargs@16.2.0, yargs@^16.0.0:
   version "16.2.0"

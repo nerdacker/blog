@@ -2,6 +2,18 @@ const yaml = require("js-yaml");
 const { DateTime } = require("luxon");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const htmlmin = require("html-minifier");
+const Eta = require("eta");
+const asciidoctor = require('asciidoctor')();
+const asciidoctorHtml5s = require("asciidoctor-html5s");
+const prismExtension = require('asciidoctor-prism-extension');
+
+asciidoctorHtml5s.register();
+asciidoctor.SyntaxHighlighter.register('prism', prismExtension);
+
+const defaultOptions = {
+  safe: "unsafe",
+  backend: "html5s"
+}
 
 module.exports = function (eleventyConfig) {
   // Disable automatic use of your .gitignore
@@ -81,6 +93,29 @@ module.exports = function (eleventyConfig) {
     }
 
     return content;
+  });
+  
+  eleventyConfig.addTemplateFormats("adoc");
+
+  eleventyConfig.addExtension("adoc", {
+    read: true,
+    getData: true,
+    getInstanceFromInputPath: function(inputPath) {
+		return ""
+    },
+    init: async function() {
+    },
+    compile: (str, inputPath) => (data) => {
+	  var linkTemplate = function (link, data) {
+		link = link.replaceAll("{{ ","<%= it.").replaceAll("}}","%>");
+		return Eta.render(link, data)
+	  }
+	  //Check if str is Link
+	  if (str && typeof str === "string" && str.startsWith("/") && str.endsWith("/index.html")) {
+		return typeof str === "function" ? str(data) : linkTemplate(str,data);
+	  }
+	  return asciidoctor.convert(str, defaultOptions);
+	}
   });
 
   // Let Eleventy transform HTML files as nunjucks
