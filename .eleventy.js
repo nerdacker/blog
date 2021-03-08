@@ -27,7 +27,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("posts_en", function (collection) {
-    return collection.getFilteredByGlob(["./src/en/posts/*.md","./src/en/posts/*.","./src/en/posts/*.html"]);
+    return collection.getFilteredByGlob(["./src/en/posts/*.md","./src/en/posts/*.adoc","./src/en/posts/*.html"]);
   });
 
   // date filter (localized)
