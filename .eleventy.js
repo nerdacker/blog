@@ -23,11 +23,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setDataDeepMerge(true);
 
   eleventyConfig.addCollection("posts_de", function (collection) {
-    return collection.getFilteredByGlob("./src/de/posts/*.md");
+    return collection.getFilteredByGlob(["./src/de/posts/*.md","./src/de/posts/*.adoc","./src/de/posts/*.html"]);
   });
 
   eleventyConfig.addCollection("posts_en", function (collection) {
-    return collection.getFilteredByGlob("./src/en/posts/*.md");
+    return collection.getFilteredByGlob(["./src/en/posts/*.md","./src/en/posts/*.","./src/en/posts/*.html"]);
   });
 
   // date filter (localized)
