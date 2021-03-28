@@ -25,7 +25,7 @@ translationKey: blog
                             <!-- todo: insert real link here -->
                             <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{ tag }}</a>
                         {% endfor %}
-                        <h2 class="font-bold text-3xl text-gray-900 mb-2">
+                        <h2 class="text-3xl font-bold hover:text-gray-700 pb-4">
                             <a href="{{ post.url | url }}">
                                 {% if post.data.title %}
                                     {{ post.data.title }}
@@ -34,17 +34,21 @@ translationKey: blog
                                 {% endif %}
                             </a>
                         </h2>
+                        <!-- Untertitel -->
+                        <p href="#" class="text-sm pb-3">
+                            <!-- todo insert real link -->
+                            <time>{{ post.date | localizedDate(localeRegion) }} von <a href="#" class="font-semibold hover:text-gray-800">{{ post.data.author }}</a></time>
+                        </p>
                         <p class="text-base leading-6 text-gray-500 mb-3">
-                            <time>{{ post.date | localizedDate(localeRegion) }} von <a>{{ post.data.author }}</a></time>
                         </p>
                         {% if post.data.description %}
-                            <p class="text-lg text-gray-500 mb-3">
+                            <p class="pb-6">
                                 {{ post.data.description }}
                             </p>
                         {% endif %}
 
                         <p>
-                            <a href="{{ post.url | url }}" class="text-indigo-500 font-bold text-lg">
+                            <a href="{{ post.url | url }}" class="uppercase text-gray-800 hover:text-black">
                               Mehr lesen →
                              </a>
                         </p>
