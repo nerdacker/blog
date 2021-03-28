@@ -19,30 +19,36 @@ translationKey: blog
                         <img src="{{ post.data.image }}">
                     </a>
                     {% endif %}
-                    <h2 class="font-bold text-3xl text-gray-900 mb-2">
-                        <a href="{{ post.url | url }}">
-                            {% if post.data.title %}
-                                {{ post.data.title }}
-                            {% else %}
-                        Unbenannt
-                    {% endif %}
-                        </a>
-                    </h2>
-                    <p class="text-base leading-6 text-gray-500 mb-3">
-                        <time>{{ post.date | localizedDate(localeRegion) }} von <a>{{ post.data.author }}</a></time>
-                    </p>
-                    {% if post.data.description %}
-                        <p class="text-lg text-gray-500 mb-3">
-                            {{ post.data.description }}
+                    <div class="bg-white flex flex-col justify-start p-6">
+                        <!-- Tags -->
+                        {% for tag in post.data.tags %}
+                            <!-- todo: insert real link here -->
+                            <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{ tag }}</a>
+                        {% endfor %}
+                        <h2 class="font-bold text-3xl text-gray-900 mb-2">
+                            <a href="{{ post.url | url }}">
+                                {% if post.data.title %}
+                                    {{ post.data.title }}
+                                {% else %}
+                                Unbenannt
+                                {% endif %}
+                            </a>
+                        </h2>
+                        <p class="text-base leading-6 text-gray-500 mb-3">
+                            <time>{{ post.date | localizedDate(localeRegion) }} von <a>{{ post.data.author }}</a></time>
                         </p>
-                    {% endif %}
+                        {% if post.data.description %}
+                            <p class="text-lg text-gray-500 mb-3">
+                                {{ post.data.description }}
+                            </p>
+                        {% endif %}
 
-                    <p>
-                        <a href="{{ post.url | url }}" class="text-indigo-500 font-bold text-lg">
-                    Mehr lesen →
-                </a>
-                    </p>
-
+                        <p>
+                            <a href="{{ post.url | url }}" class="text-indigo-500 font-bold text-lg">
+                              Mehr lesen →
+                             </a>
+                        </p>
+                    </div>
                 </article>
             {% endfor %}
         </section>
