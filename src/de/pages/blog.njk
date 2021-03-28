@@ -12,7 +12,13 @@ translationKey: blog
             {% set postslist = collections.posts_de %}
 
             {% for post in postslist | reverse %}
-                <article class="my-8">
+                <article class="flex flex-col shadow my-4">
+                    <!-- Article Image -->
+                    {% if post.data.image %}
+                    <a href="{{ post.url }}" class="hover:opacity-75">
+                        <img src="{{ post.data.image }}">
+                    </a>
+                    {% endif %}
                     <h2 class="font-bold text-3xl text-gray-900 mb-2">
                         <a href="{{ post.url | url }}">
                             {% if post.data.title %}
