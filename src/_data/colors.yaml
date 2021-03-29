@@ -1,6 +1,7 @@
 # Global color map using tailwind color class names
 link: text-gray-200
 linkbg: bg-gray-200
+background: bg-gray-800
 h1: 
 h2:
 text: 
