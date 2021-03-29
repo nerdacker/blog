@@ -127,6 +127,3 @@ Autoconverted link https://github.com/nodeca/pica
 
 ![Minion](https://octodex.github.com/images/minion.png)
 
-## Iframes
-
-<iframe src="https://stackblitz.com/edit/rxjs-8vvgcd?file=index.ts" width="600" height="800"></iframe>
