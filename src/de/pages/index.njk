@@ -21,17 +21,15 @@ translationKey: blog
                     <div class="bg-white flex flex-col justify-start p-6">
                         <!-- Tags -->
                         {% for tag in post.data.tags %}
-                            <a href="/{{locale}}/tags/{{tag}}/" class="{{colors.link-bg}} text-sm font-bold uppercase pb-4">#{{ tag }}</a>
+                            <a href="/{{locale}}/tags/{{tag}}/" class="{{colors.link-bg}} text-sm font-bold uppercase pb-4 hover:text-gray-700">#{{ tag }}</a>
                         {% endfor %}
-                        <h2 class="text-3xl font-bold hover:text-gray-700 pb-4">
-                            <a href="{{ post.url | url }}">
-                                {% if post.data.title %}
-                                    {{ post.data.title }}
-                                {% else %}
-                                Unbenannt
-                                {% endif %}
-                            </a>
-                        </h2>
+                        <a href="{{ post.url | url }}" class="text-3xl font-bold hover:text-gray-700 pb-4">
+                        {% if post.data.title %}
+                        {{ post.data.title }}
+                        {% else %}
+                        Unbenannt
+                        {% endif %}
+                        </a>
                         <!-- Untertitel -->
                         <p href="#" class="text-sm pb-3">
                             <time>{{ post.date | localizedDate(localeRegion) }} von <a href="/{{ locale }}/author/{{ post.data.author | slug }}/" class="font-semibold hover:text-gray-800">{{ post.data.author }}</a></time>

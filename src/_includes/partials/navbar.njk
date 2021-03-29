@@ -49,9 +49,9 @@
                                     {% endfor%}
 
                                     {% if language.flag !== currentflag %}
-                                        <a href="{{translatedUrl}}" class="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:{{colors.linkbg}} hover:text-white">
-                                            <div style="width: 30px; height: 30px; top: 10px; left: 1ex; background-image: url(data:image/svg+xml;base64,{{language.flag}}); position: absolute;"></div>
-                                            <span class="inline-block align-middle">{{language.label}}</span>
+                                        <a href="{{translatedUrl}}" class="transition-colors duration-200 block px-4 py-2 text-normal rounded">
+                                            <div style="width: 30px; height: 30px; top: 13px; left: 1.5ex; background-image: url(data:image/svg+xml;base64,{{language.flag}}); position: absolute;"></div>
+                                            <span class="inline-block align-middle text-black">{{language.label}}</span>
                                         </a>
                                     {% endif %}
                                 {% endfor %}
