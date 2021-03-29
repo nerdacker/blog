@@ -21,7 +21,7 @@ translationKey: blog
                     <div class="bg-white flex flex-col justify-start p-6">
                         <!-- Tags -->
                         {% for tag in post.data.tags %}
-                            <a href="/{{locale}}/tags/{{tag}}/" class="text-blue-700 text-sm font-bold uppercase pb-4">{{ tag }}</a>
+                            <a href="/{{locale}}/tags/{{tag}}/" class="{{colors.link-bg}} text-sm font-bold uppercase pb-4">#{{ tag }}</a>
                         {% endfor %}
                         <h2 class="text-3xl font-bold hover:text-gray-700 pb-4">
                             <a href="{{ post.url | url }}">
