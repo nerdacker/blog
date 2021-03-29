@@ -1,4 +1,4 @@
-<div class="{{ 'lg:fixed' if path == 'home' }} w-full py-4 bg-gray-800 shadow">
+<div class="{{ 'lg:fixed' if path == 'home' }} w-full bg-gray-800 shadow">
     <nav class="flex items-center justify-center lg:justify-between flex-wrap lg:px-0 container mx-auto" x-data="{ isopen: false }" @keydown.escape="isopen = false">
         <!--Toggle button (hidden on large screens)-->
         <button @click="isopen = !isopen" type="button" class="ml-auto block lg:hidden px-2 text-primary-500 hover:text-primary-500 focus:outline-none focus:text-primary-500" :class="{ 'transition transform-180': isopen }" aria-label="menu">
