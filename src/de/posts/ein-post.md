@@ -3,7 +3,7 @@ title: Ein Post
 translationKey: formatting-examples
 description: Diese kurze Übersicht zeigt verwendungsmöglichkeiten von Markdown beim Schreiben von Artikeln.
 date: 2021-01-26
-author: Alessio Bisgen
+author: Umberto Bolognese
 image: https://cdn.britannica.com/25/93825-050-D1300547/collection-newspapers.jpg
 tags:
   - allgemein
