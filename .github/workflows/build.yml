@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - build-pipeline # FIXME: just for dev / testing
 
 jobs:
   build:
@@ -25,5 +26,3 @@ jobs:
         run: |
           npx yarn
           npx yarn build         
-
-      # TODO: add deploy

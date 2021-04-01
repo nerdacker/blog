@@ -1,0 +1,17 @@
+name: Deploy manually
+
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'provide a reason for deployment'
+        default: 'new blog post'
+        required: true
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Starting
+      run: echo "trigger deploy ${{ github.event.inputs.reason }}"
