@@ -4,14 +4,14 @@ on:
   push:
     branches:
       - master
+      - build-pipeline # FIXME: just for dev / testing
 
 jobs:
   build:
     runs-on: ubuntu-20.04
 
     strategy:
-      matrix:
-        node-version: [12.x]
+      node-version: [12.x]
 
     steps:
       - uses: actions/checkout@v2
