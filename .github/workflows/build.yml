@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-20.04
 
     strategy:
-      node-version: [12.x]
+      matrix:
+        node-version: [12.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -25,5 +26,3 @@ jobs:
         run: |
           npx yarn
           npx yarn build         
-
-      # TODO: add deploy
