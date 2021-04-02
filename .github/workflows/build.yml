@@ -25,4 +25,23 @@ jobs:
       - name: Install dependencies & build
         run: |
           npx yarn
-          npx yarn build         
+          npx yarn build
+          
+      - name: save build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact
+          path: _site/
+          
+  deploy:
+    runs-on: ubuntu-20.04
+    
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: build-artifact
+
+      - name: Display structure of downloaded files
+        run: ls -R
