@@ -5,4 +5,4 @@ items:
     url_part: "pages/aboutus"
   - text_de: Beiträge
     text_en: Posts
-    url_part: "pages/blog"
+    url_part: ""
