@@ -1,5 +1,6 @@
 # Coding blog powered by Eleventy
 
+![build & deployment](https://github.com/nerdacker/blog/actions/workflows/build.yml/badge.svg)
 
 ### Technologies used:
 
