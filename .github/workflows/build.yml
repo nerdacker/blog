@@ -43,15 +43,7 @@ jobs:
           name: build-artifact
 
       - name: Display structure of downloaded files
-        run: ls -R
+        run: pwd && ls -R
 
       - name: upload
-        uses: easingthemes/ssh-deploy@v2.1.6
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
-          ARGS: "-rltgoDzvO --delete"
-          SOURCE: "*"
-          REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
-          REMOTE_USER: ${{ secrets.DEPLOY_USER }}
-          TARGET: /home/alessio/test/blog/_site/
-          EXCLUDE: "/dist/, /node_modules/"
+        run: scp -i ${{secrets.DEPLOY_KEY}} -r * ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/nerdacker/.
