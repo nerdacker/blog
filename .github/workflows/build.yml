@@ -45,5 +45,12 @@ jobs:
       - name: Display structure of downloaded files
         run: pwd && ls -R
 
-      - name: upload
-        run: scp -i ${{secrets.DEPLOY_KEY}} -r * ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/nerdacker/.
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.DEPLOY_HOST% }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: 22
+          source: "*"
+          target: "/nerdacker/"
