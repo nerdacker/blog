@@ -44,3 +44,14 @@ jobs:
 
       - name: Display structure of downloaded files
         run: ls -R
+
+      - name: upload
+        uses: easingthemes/ssh-deploy@v2.1.6
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+          ARGS: "-rltgoDzvO --delete"
+          SOURCE: "*"
+          REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
+          REMOTE_USER: ${{ secrets.DEPLOY_USER }}
+          TARGET: /home/alessio/test/blog/_site/
+          EXCLUDE: "/dist/, /node_modules/"
