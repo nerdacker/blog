@@ -4,12 +4,13 @@ layout: default
 ---
 
 {% block content %}
+<article class="lex flex-col shadow my-4">
     {% if image %}
-        <div class="container max-w-4xl px-6">
+        <div class="container max-w-4xl">
             <img src="{{image}}" class="w-full object-cover">
             <div class="mt-3">
                 {% for tag in tags %}
-                    <a href="/{{locale}}/tags/{{tag}}" class="mr-1 px-4 py-1 bg-black text-gray-200 inline-flex items-center justify-center mb-2">#{{tag | getLocalizedTag(categories.categories, locale)}}</a>
+                    <a href="/{{locale}}/tags/{{tag}}" class="mr-1 px-4 py-1 {{ color.link }} inline-flex items-center justify-center mb-2">#{{tag | getLocalizedTag(categories.categories, locale)}}</a>
                 {% endfor %}
             </div>
         </div>
@@ -33,4 +34,5 @@ layout: default
             {% endif %}
         {% endfor %}
     </div>
+</article>
 {% endblock %}

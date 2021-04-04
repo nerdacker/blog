@@ -25,4 +25,38 @@ jobs:
       - name: Install dependencies & build
         run: |
           npx yarn
-          npx yarn build         
+          npx yarn build
+          
+      - name: save build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact
+          path: _site/
+          
+  deploy:
+    runs-on: ubuntu-20.04
+    needs: build
+    steps:
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: build-artifact
+
+      - name: Display structure of downloaded files
+        run: pwd && ls -R
+
+      # - name: copy files via ssh
+      #   uses: appleboy/scp-action@master
+      #   with:
+      #     host: ${{ secrets.DEPLOY_HOST }}
+      #     username: ${{ secrets.DEPLOY_USER }}
+      #     key: ${{ secrets.DEPLOY_KEY }}
+      #     port: 22
+      #     source: "*"
+      #     target: "/nerdacker/"
+
+      - name: copy files via ssh
+        run: pwd && cd ..
+        run: echo ${{ secrets.DEPLOY_KEY }} > key
+        run: scp -i 
+

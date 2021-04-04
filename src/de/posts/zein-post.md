@@ -1,5 +1,5 @@
 ---
-title: Formatierungsbeispiele
+title: Zwei Post
 translationKey: formatting-examples
 description: Diese kurze Übersicht zeigt verwendungsmöglichkeiten von Markdown beim Schreiben von Artikeln.
 date: 2021-01-26
@@ -126,5 +126,4 @@ Autoconverted link https://github.com/nodeca/pica
 ## Images
 
 ![Minion](https://octodex.github.com/images/minion.png)
-
 
