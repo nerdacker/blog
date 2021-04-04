@@ -23,11 +23,13 @@
                    <img height="24" width="24" src="data:image/svg+xml;base64,{{icons.location}}" />
                     {{author.location}}
                 </div>
+                {% if author.website %}
                 <div
                     class="col-span-1 pt-2 text-black text-xs lg:text-sm flex items-center justify-center lg:justify-start">
                     <img height="24" width="24" src="data:image/svg+xml;base64,{{icons.link}}" />
                     {{author.website}}
                 </div>
+                {% endif %}
             </div>
 
             <p class="pt-8 text-sm">{{author['description_'+locale]}}</p>
