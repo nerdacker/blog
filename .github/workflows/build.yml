@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - build-pipeline # FIXME: just for dev / testing
 
 jobs:
   build:
