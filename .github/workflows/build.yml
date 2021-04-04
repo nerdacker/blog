@@ -51,6 +51,7 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
           port: 22
-          source: "*"
+          source: "*" # contents of the build exists flattened in the pwd folder
           target: "/nerdacker/"
 
+      # TODO: dependency really necessary, a plain old scp command should do the trick as well.
