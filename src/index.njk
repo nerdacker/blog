@@ -13,6 +13,7 @@ layout: default
 </script>
 
 {% block content %}
+<div id="content" class="container max-w-3xl mt-6 px-6">
   <div class="flex flex-wrap items-center justify-center">
     {% for lang in site.languages %}
       {% set translatedUrl = "/" + lang.code + "/" %}
@@ -32,4 +33,5 @@ layout: default
       </a>
     {% endfor %}
   </div>
+</div>
 {% endblock %}

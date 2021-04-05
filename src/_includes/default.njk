@@ -14,7 +14,7 @@
   <body>
     {% include "partials/navbar.njk" %}
     {% include "header.njk"%}
-    <div id="content" class="container max-w-3xl mt-6 px-6">
+    <div class="container mx-auto flex flex-wrap">
         {{content | safe}}
     </div>
     {% include "partials/footer.njk" %}
