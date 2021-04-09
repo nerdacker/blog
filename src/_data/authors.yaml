@@ -1,45 +1,5 @@
 ---
 authors:
-  - name: Umberto Bolognese
-    job: Full Stack Developer
-    location: Karlsruhe, Baden-Württemberg
-    description_de: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-    description_en: The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.
-    website: http://alessiobisgen.de
-    photo: https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
-    socials:
-      twitter: https://twitter.com/ACBisgen
-      github: https://github.com/acebarn
-      instagram: https://www.instagram.com/acebarn/
-      stackoverflow: https://stackoverflow.com/users/3244078/acb
-      facebook: facebook.com
-  
-  - name: Rainer Zufall
-    job: Unbezahlter Praktikant
-    location: Stuttgart, Baden-Württemberg
-    description_de: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-    description_en: "Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words."
-    website: http://alessiobisgen.de
-    photo: https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg
-    socials:
-      twitter: https://twitter.com/ACBisgen
-      github: https://github.com/acebarn
-      instagram: https://www.instagram.com/acebarn/
-      stackoverflow: https://stackoverflow.com/users/3244078/acb
-  
-  - name: Jane Doe
-    job: Technical Assistant
-    location: Gebirge
-    description_de: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-    description_en: If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages.
-    website: http://alessiobisgen.de
-    photo: https://images.pexels.com/photos/1122868/pexels-photo-1122868.jpeg
-    socials:
-      twitter: https://twitter.com/ACBisgen
-      github: https://github.com/acebarn
-      instagram: https://www.instagram.com/acebarn/
-      stackoverflow: https://stackoverflow.com/users/3244078/acb
-
   - name: SebastianRzk
     job: Agile Software Engineer
     location: Karlsruhe, Europe
@@ -72,4 +32,16 @@ authors:
       stackoverflow: https://stackoverflow.com/users/3244078/acb
       xing: https://www.xing.com/profile/Alessio_Bisgen/cv
 
-    
+  - name: Joshua Schnabel
+    job: IT Security Experte / Technology Architect 
+    location: Karlsruhe, Baden-Württemberg
+    description_de: Hallo mein Name ist Joshua. Ich bin durch und durch Informatiker. Beruflich befasse ich mich mit IT-Security. Dieses Thema zieht sich auch in meinen privaten Bereich, wo ich mich neben IT-Security auch mit Themen aus den Bereichen Smart Home, IoT und dezentralen Systemen beschäftige. Wenn neben diesem großen Hobby noch Zeit bleibt, dann versuche ich mich an meinem zweiten Hobby der Fotografie.
+    description_en: Hello, my name is Joshua. I am a computer scientist through and through. Professionally, I deal with IT security. This topic also influences my private life, where I deal with topics from the fields of smart home, IoT and decentralised systems in addition to IT security. If there is still time left besides this major hobby, then I try my hand at my second hobby of photography.
+    website: https://joshua-schnabel.de
+    photo: /static/img/joshua.jpg
+    socials:
+      twitter: https://twitter.com/joshua_schnabel
+      github: https://github.com/joshua-schnabel
+      stackoverflow: https://stackoverflow.com/users/2535457/schnawel007
+      xing: https://www.xing.com/profile/Joshua_Schnabel/cv
+      linkedin: https://www.linkedin.com/in/joshua-schnabel-49089a205/
