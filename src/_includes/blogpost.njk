@@ -4,7 +4,7 @@ layout: default
 ---
 
 {% block content %}
-<article class="lex flex-col w-full my-4">
+<article class="flex w-full w-2/3 flex-col w-full my-4">
     {% if image %}
         <div class="container max-w-4xl">
             <img src="{{image}}" class="w-full object-cover">
@@ -35,8 +35,13 @@ layout: default
         {% endfor %}
     </div>
 </article>
-<aside class="my-4 flex flex-col px-3 bg-gray-200 fixed">
-    <h2 class="text-3xl font-bold hover:text-gray-700 pb-4">{{toc}}</h2>
-    Infos besides blogposts
+<aside class="m-4 flex flex-col px-3 bg-gray-200">
+    <h2 class="text-2xl font-bold pb-4 inline">
+        <img src="/static/img/toc.svg" width="40"/> 
+        <span class="">{{toc}}</span>
+    </h2>
+    <div class="">
+        {{ content | toc | safe }}
+    </div>
 </aside>
 {% endblock %}

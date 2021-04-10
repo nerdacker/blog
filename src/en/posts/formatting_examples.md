@@ -12,7 +12,7 @@ tags:
 
 Some formatting examples
 
-## h2 Heading
+## <a id="MyHeading"></a>My Heading ##
 
 ### h3 Heading
 

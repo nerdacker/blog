@@ -7,12 +7,30 @@ const asciidoctor = require('asciidoctor')();
 const asciidoctorHtml5s = require("asciidoctor-html5s");
 const prismExtension = require('asciidoctor-prism-extension');
 
+const markdownIt = require('markdown-it')
+const markdownItAnchor = require('markdown-it-anchor')
+const pluginTOC = require('eleventy-plugin-toc');
+
 asciidoctorHtml5s.register();
 asciidoctor.SyntaxHighlighter.register('prism', prismExtension);
 
 const defaultOptions = {
   safe: "unsafe",
   backend: "html5s"
+}
+
+const mdOptions = {
+  html: true,
+  breaks: true,
+  linkify: true,
+  typographer: true
+}
+
+const mdAnchorOpts = {
+  permalink: true,
+  permalinkClass: 'anchor-link',
+  permalinkSymbol: '#',
+  level: [1, 2, 3, 4]
 }
 
 module.exports = function (eleventyConfig) {
@@ -29,6 +47,19 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("posts_en", function (collection) {
     return collection.getFilteredByGlob(["./src/en/posts/*.md","./src/en/posts/*.adoc","./src/en/posts/*.html"]);
   });
+
+  eleventyConfig.setLibrary(
+    'md',
+    markdownIt(mdOptions)
+      .use(markdownItAnchor, mdAnchorOpts)
+      // .use(markdownItHighlightJS)
+  );
+
+  eleventyConfig.addPlugin(pluginTOC, {
+    tags: ['h2', 'h3'],
+    wrapper: 'div'
+  });
+
 
   // date filter (localized)
   eleventyConfig.addNunjucksFilter("localizedDate", function (date, localeRegion) {
