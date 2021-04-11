@@ -70,17 +70,20 @@ function init() {
     const TOCitems = document.querySelectorAll('.toc li a');
     TOCitems.forEach( item => item.addEventListener('click', handleTocItemClick));
 
-    
+    /**
+     * calculates the minimum distance of h2 and h3 tags to the given scroll 
+     * position and sets "active" class to the element with min distance and a distance < 100
+     */
     const handleScroll = (pos) => {
         const headings = document.querySelectorAll('h2, h3');
 
         const min = Array.from(headings) // create iterable list from dom selections
-                                .map( item => ({ obj: item, distance: item.offsetTop - pos }) ) // get distance and obj ref
-                                .map( item => item.distance < 0 ? ({...item, distance: item.distance * -1 }) : item) // create vector style values
-                                .reduce( (prev, curr) => prev.distance < curr.distance ? prev : curr) // calculate minimum
+                            .map( item => ({ obj: item, distance: item.offsetTop - pos }) ) // get distance and obj ref
+                            .map( item => item.distance < 0 ? ({...item, distance: item.distance * -1 }) : item) // create vector style values
+                            .reduce( (prev, curr) => prev.distance < curr.distance ? prev : curr) // calculate minimum
         
         if (min.distance < 100) {
-            TOCitems.forEach( item => item.className = "");
+            TOCitems.forEach( item => item.className = ""); // remove all classes
             const TOCitem = Array.from(document.querySelectorAll('.toc li a'))
                                 .filter(item => item.href.split('#')[1] === min.obj.id)[0];
             TOCitem.className = "active";
@@ -93,6 +96,9 @@ function init() {
     window.addEventListener('scroll', function(e) {
         const last_known_scroll_position = window.scrollY;
 
+        // scroll page event gets fired very often and calculation makes sense 
+        // only on new page renderings. So we wait for the Animation frame for 
+        // better performance.  
         if (!ticking) {
             window.requestAnimationFrame(function() {
                 handleScroll(last_known_scroll_position);
@@ -103,7 +109,7 @@ function init() {
         }
     }); 
 
-    handleScroll(window.scrollY);
+    handleScroll(window.scrollY); // fire it once on page load
 }
 
 init()
