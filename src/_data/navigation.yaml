@@ -6,3 +6,6 @@ items:
   - text_de: Beiträge
     text_en: Posts
     url_part: ""
+  - text_de: Impressum
+    text_en: Impress
+    url_part: "pages/impress"
