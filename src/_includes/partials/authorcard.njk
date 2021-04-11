@@ -15,19 +15,19 @@
             <!-- Author info grid -->
             <div class="mt-5">
                 <div class=" col-span-1 pt-4 text-base flex items-center justify-center lg:justify-start">
-                    <img height="24" width="24" src="data:image/svg+xml;base64,{{icons.briefcase}}" />
+                    <img height="24" width="24" src="data:image/svg+xml;base64,{{icons.briefcase}}" class="mr-2"/>
                     {{author.job}}
                 </div>
                 <div
                     class="col-span-1 pt-2 text-black text-xs lg:text-sm flex items-center justify-center lg:justify-start">
-                   <img height="24" width="24" src="data:image/svg+xml;base64,{{icons.location}}" />
+                   <img height="24" width="24" src="data:image/svg+xml;base64,{{icons.location}}" class="mr-2"/>
                     {{author.location}}
                 </div>
                 {% if author.website %}
                 <div
                     class="col-span-1 pt-2 text-black text-xs lg:text-sm flex items-center justify-center lg:justify-start">
-                    <img height="24" width="24" src="data:image/svg+xml;base64,{{icons.link}}" />
-                    {{author.website}}
+                    <img height="24" width="24" src="data:image/svg+xml;base64,{{icons.link}}" class="mr-2"/>
+                    <a href="{{author.website}}" target="_blank">{{author.website}}</a>
                 </div>
                 {% endif %}
             </div>
