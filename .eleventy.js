@@ -9,14 +9,17 @@ const prismExtension = require('asciidoctor-prism-extension');
 
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
-const pluginTOC = require('eleventy-plugin-toc');
+const pluginTOC = require('eleventy-plugin-nesting-toc');
 
 asciidoctorHtml5s.register();
 asciidoctor.SyntaxHighlighter.register('prism', prismExtension);
 
 const defaultOptions = {
   safe: "unsafe",
-  backend: "html5s"
+  attributes: {
+	  sectanchors: true,
+	  idprefix: ""
+  }
 }
 
 const mdOptions = {
@@ -28,7 +31,7 @@ const mdOptions = {
 
 const mdAnchorOpts = {
   permalink: true,
-  permalinkClass: 'anchor-link',
+  permalinkClass: 'anchor',
   permalinkSymbol: '#',
   level: [1, 2, 3, 4]
 }
@@ -56,8 +59,9 @@ module.exports = function (eleventyConfig) {
   );
 
   eleventyConfig.addPlugin(pluginTOC, {
-    tags: ['h2', 'h3'],
-    wrapper: 'div'
+    tags: ['h2', 'h3', 'h4', 'h5'],
+    wrapper: 'div',
+	ignoredElements: ['a']
   });
 
 
@@ -145,7 +149,7 @@ module.exports = function (eleventyConfig) {
 	  if (str && typeof str === "string" && str.startsWith("/") && str.endsWith("/index.html")) {
 		return typeof str === "function" ? str(data) : linkTemplate(str,data);
 	  }
-	  return asciidoctor.convert(str, defaultOptions);
+	  return "<div class=\"adoc\">" + asciidoctor.convert(str, defaultOptions) +  "</div>";
 	}
   });
 

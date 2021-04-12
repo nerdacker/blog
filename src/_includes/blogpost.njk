@@ -1,9 +1,10 @@
 ---
 prism: true
-layout: default-with-aside
+stickyAside: true
 ---
+{% extends "default-with-aside.njk" %}
 
-{% block content %}
+{% block text %}
 <article class="flex w-full flex-col my-4">
     {% if image %}
         <div class="container max-w-4xl">
@@ -35,29 +36,18 @@ layout: default-with-aside
         {% endfor %}
     </div>
 </article>
-{% if content | toc %}
-<aside class="my-4 fixed left-3/4 flex flex-col p-3 bg-gray-700 text-gray-200 text-center rounded-md shadow-lg">
-    <h4 class="text-xl font-bold pb-4 m-2">
-        <img src="/static/img/toc.svg" width="40" class="inline"/> 
-        <span class="">{{toc}}</span>
-    </h4>
-    <div class="mx-6">
-        {{ content | toc | safe }}
-    </div>
-</aside>
+{% endblock %}
 
-<style>
-.toc li:active, .toc li:focus {
-    text-decortation: underline white;
-    font-weight: bold;
-}
-
-.active {
-    text-decortation: underline white;
-    font-weight: bold;
-}
-</style>
-
+{% block sidebar %}
+<div class="toc">
+	<h4 class="text-xl font-bold pb-4 m-2">
+		<img src="/static/img/toc.svg" width="40" class="inline"/> 
+		<span class="">{{toc}}</span>
+	</h4>
+	<div class="mx-6">
+		{{ content | toc | safe }}
+	</div>
+<div>
 <script>
 
 function init() {
@@ -114,5 +104,4 @@ function init() {
 
 init()
 </script>
-{% endif %}
 {% endblock %}
