@@ -12,7 +12,7 @@ tags:
 
 Some formatting examples
 
-## h2 Heading
+## Heading 2
 
 ### h3 Heading
 

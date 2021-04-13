@@ -1,10 +1,11 @@
 ---
 prism: true
-layout: default-with-aside
+stickyAside: true
 ---
+{% extends "default-with-aside.njk" %}
 
-{% block content %}
-<article class="lex flex-col shadow my-4">
+{% block text %}
+<article class="flex w-full flex-col my-4">
     {% if image %}
         <div class="container max-w-4xl">
             <img src="{{image}}" class="w-full object-cover">
@@ -35,4 +36,72 @@ layout: default-with-aside
         {% endfor %}
     </div>
 </article>
+{% endblock %}
+
+{% block sidebar %}
+<div class="toc">
+	<h4 class="text-xl font-bold pb-4 m-2">
+		<img src="/static/img/toc.svg" width="40" class="inline"/> 
+		<span class="">{{toc}}</span>
+	</h4>
+	<div class="mx-6">
+		{{ content | toc | safe }}
+	</div>
+<div>
+<script>
+
+function init() {
+    
+    const handleTocItemClick = (event) => { 
+        TOCitems.forEach( item => item.className = "");      
+        event.target.className = 'active';
+    }
+
+    const TOCitems = document.querySelectorAll('.toc li a');
+    TOCitems.forEach( item => item.addEventListener('click', handleTocItemClick));
+
+    /**
+     * calculates the minimum distance of h2 and h3 tags to the given scroll 
+     * position and sets "active" class to the element with min distance and a distance < 100
+     */
+    const handleScroll = (pos) => {
+        const headings = document.querySelectorAll('h2, h3');
+
+        const min = Array.from(headings) // create iterable list from dom selections
+                            .map( item => ({ obj: item, distance: item.offsetTop - pos }) ) // get distance and obj ref
+                            .map( item => item.distance < 0 ? ({...item, distance: item.distance * -1 }) : item) // create vector style values
+                            .reduce( (prev, curr) => prev.distance < curr.distance ? prev : curr) // calculate minimum
+        
+        if (min.distance < 100) {
+            TOCitems.forEach( item => item.className = ""); // remove all classes
+            const TOCitem = Array.from(document.querySelectorAll('.toc li a'))
+                                .filter(item => item.href.split('#')[1] === min.obj.id)[0];
+            TOCitem.className = "active";
+        }
+
+    }
+
+    let ticking = false;
+    
+    window.addEventListener('scroll', function(e) {
+        const last_known_scroll_position = window.scrollY;
+
+        // scroll page event gets fired very often and calculation makes sense 
+        // only on new page renderings. So we wait for the Animation frame for 
+        // better performance.  
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                handleScroll(last_known_scroll_position);
+                ticking = false;
+            });
+
+            ticking = true;
+        }
+    }); 
+
+    handleScroll(window.scrollY); // fire it once on page load
+}
+
+init()
+</script>
 {% endblock %}

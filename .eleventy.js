@@ -7,12 +7,33 @@ const asciidoctor = require('asciidoctor')();
 const asciidoctorHtml5s = require("asciidoctor-html5s");
 const prismExtension = require('asciidoctor-prism-extension');
 
+const markdownIt = require('markdown-it')
+const markdownItAnchor = require('markdown-it-anchor')
+const pluginTOC = require('eleventy-plugin-nesting-toc');
+
 asciidoctorHtml5s.register();
 asciidoctor.SyntaxHighlighter.register('prism', prismExtension);
 
 const defaultOptions = {
   safe: "unsafe",
-  backend: "html5s"
+  attributes: {
+	  sectanchors: true,
+	  idprefix: ""
+  }
+}
+
+const mdOptions = {
+  html: true,
+  breaks: true,
+  linkify: true,
+  typographer: true
+}
+
+const mdAnchorOpts = {
+  permalink: true,
+  permalinkClass: 'anchor',
+  permalinkSymbol: '#',
+  level: [1, 2, 3, 4]
 }
 
 module.exports = function (eleventyConfig) {
@@ -29,6 +50,20 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("posts_en", function (collection) {
     return collection.getFilteredByGlob(["./src/en/posts/*.md","./src/en/posts/*.adoc","./src/en/posts/*.html"]);
   });
+
+  eleventyConfig.setLibrary(
+    'md',
+    markdownIt(mdOptions)
+      .use(markdownItAnchor, mdAnchorOpts)
+      // .use(markdownItHighlightJS)
+  );
+
+  eleventyConfig.addPlugin(pluginTOC, {
+    tags: ['h2', 'h3', 'h4', 'h5'],
+    wrapper: 'div',
+	ignoredElements: ['a']
+  });
+
 
   // date filter (localized)
   eleventyConfig.addNunjucksFilter("localizedDate", function (date, localeRegion) {
@@ -114,7 +149,7 @@ module.exports = function (eleventyConfig) {
 	  if (str && typeof str === "string" && str.startsWith("/") && str.endsWith("/index.html")) {
 		return typeof str === "function" ? str(data) : linkTemplate(str,data);
 	  }
-	  return asciidoctor.convert(str, defaultOptions);
+	  return "<div class=\"adoc\">" + asciidoctor.convert(str, defaultOptions) +  "</div>";
 	}
   });
 
