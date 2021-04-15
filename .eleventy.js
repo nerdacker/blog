@@ -59,7 +59,7 @@ module.exports = function (eleventyConfig) {
   );
 
   eleventyConfig.addPlugin(pluginTOC, {
-    tags: ['h2', 'h3', 'h4', 'h5'],
+    tags: ['h2', 'h3', 'h4'],
     wrapper: 'div',
 	ignoredElements: ['a']
   });

@@ -2,7 +2,7 @@
 title: FormatierungsbeispieleAdoc
 translationKey: formatting-examples-adoc
 description: Diese kurze Übersicht zeigt verwendungsmöglichkeiten von Asciidoc beim Schreiben von Artikeln.
-date: 2021-01-26
+date: 2021-01-27
 author: Joshua Schnabel
 image: https://cdn.britannica.com/25/93825-050-D1300547/collection-newspapers.jpg
 tags:
