@@ -171,7 +171,7 @@ module.exports = function (eleventyConfig) {
     },
     compile: (str, inputPath) => (data) => {
 	  var linkTemplate = function (link, data) {
-		link = link.replaceAll("{{ ","<%= it.").replaceAll("}}","%>");
+		link = link.replace(/{{/g, '<%= it.').replace(/}}/g, '%>.');
 		return Eta.render(link, data)
 	  }
 	  //Check if str is Link
