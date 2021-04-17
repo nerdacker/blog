@@ -1,0 +1,13 @@
+{
+	"i18n": {
+		"toc": "Tabe of Content",
+		"readMore": "Read more",
+		"tags": "Tags",
+		"sortByAuthor": "Sort by Author",
+		"sortByDate": "Sort by Date",
+		"sortDateOpts": {
+			"desc": "Show latest posts first",
+			"asc": "Show oldest posts first"
+		}
+	}
+ }

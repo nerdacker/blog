@@ -1,7 +1,0 @@
-{
-    "layout": "blogpost",
-    "tags": [
-        
-    ],
-    "permalink": "/{{ locale }}/blog/{{ page.fileSlug }}/index.html"
-}

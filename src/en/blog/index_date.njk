@@ -1,0 +1,22 @@
+---
+pagination:
+  data: sortandfilter.date
+  size: 1
+  alias: order
+  addAllPagesToCollections: true
+permalink: /{{ locale }}/blog/date/{{ order | slug }}/index.html
+title: Posts
+---
+{% extends "default-with-aside.njk" %}
+{% block text %}
+    <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+        {% set postslist = collections.posts_en %}
+
+        {% for post in postslist | sortPostsByDate(order) %}
+			{% include "partials/article.njk" %}
+        {% endfor %}
+    </section>
+{% endblock %}
+{% block sidebar %}
+	{% include "partials/blogsidebar.njk" %}
+{% endblock %}

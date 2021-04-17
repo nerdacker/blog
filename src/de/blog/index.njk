@@ -1,0 +1,18 @@
+---
+permalink: /{{ locale }}/blog/index.html
+title: Beiträge
+---
+
+{% extends "default-with-aside.njk" %}
+{% block text %}
+    <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+        {% set postslist = collections.posts_de %}
+
+        {% for post in postslist %}
+			{% include "partials/article.njk" %}
+        {% endfor %}
+    </section>
+{% endblock %}
+{% block sidebar %}
+	{% include "partials/blogsidebar.njk" %}
+{% endblock %}

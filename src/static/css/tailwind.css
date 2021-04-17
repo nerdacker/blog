@@ -40,6 +40,12 @@ html {
 	}
 }
 
+/*Tags*/
+tag {
+	@apply m-1 rounded-lg bg-gray-300 pt-0.5 pb-0.5 pl-2 pr-2;
+	display: inline-block;
+}
+
 /*adoc*/
 
 .adoc {

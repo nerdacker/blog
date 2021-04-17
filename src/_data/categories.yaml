@@ -3,57 +3,85 @@ categories:
   - name: software
     de: "Software"
     en: "software"
+    color: "yellow-200"
   - name: programming
     de: "Programmierung"
     en: "programming"
+    color: "indigo-300"
   - name: hardware
     de: "Hardware"
     en: "hardware"
+    color: "blue-300"
   - name: technology
     de: "Technologie"
     en: "technology"
+    color: "purple-300"
   - name: work
     de: "Arbeit"
     en: "work"
+    color: "green-200"
   - name: workflows
     de: "Prozesse"
     en: "Workflows"
+    color: "blue-100"
   - name: howto
     de: "HowTo"
     en: "howto"
+    color: "pink-300"
   - name: self-improvement
     de: "Selbstoptimierung"
     en: "self improvement"
+    color: "blue-200"
   - name: education
     de: "Bildung"
     en: "education"
+    color: "yellow-300"
   - name: books
     de: "Bücher"
     en: "books"
+    color: "yellow-100"
   - name: ethics
     de: "Ethik"
     en: "ethics"
+    color: "indigo-100"
   - name: climate
     de: "Klimawandel"
     en: "climate change"
+    color: "pink-100"
   - name: society
     de: "Gesellschaft"
     en: "society"
+    color: "red-100"
   - name: games
     de: "Computerspiele"
     en: "video games"
+    color: "red-300"
   - name: consumer-electronics
     de: "Unterhaltungselektronik"
     en: "consumer electronics"
+    color: "gray-200"
   - name: java
     de: "Java"
     en: "java"
+    color: "green-300"
   - name: python
     de: "Python"
     en: "python"
+    color: "pink-200"
   - name: smarthome
     de: "Smart Home"
     en: "smart home"
+    color: "red-200"
   - name: zigbee
     de: "Zigbee"
     en: "zigbee"
+    color: "green-100"
+  - name: internet
+    de: "Internet"
+    en: "Internet"
+    color: "gray-100"
+  - name: scam
+    de: "Scam"
+    en: "Scam"
+    color: "purple-200"
+#next colors: gray-300 purple-100 indigo-200

@@ -43,7 +43,7 @@
 
                                 {# über alle beiträge iterieren #}
                                 {% for item in collections.all %}
-                                    {% if item.data.translationKey == translationKey and item.data.locale == language.code %}
+                                    {% if item.data | chechIfLanguageMatch(page.url, item.data.locale,language.code)  %}
                                         {% set translatedUrl = item.url %}
                                     {% endif %}
                                     {% endfor%}

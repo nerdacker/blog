@@ -1,4 +1,5 @@
 const yaml = require("js-yaml");
+const _ = require('lodash');
 const { DateTime } = require("luxon");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const htmlmin = require("html-minifier");
@@ -44,13 +45,41 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setDataDeepMerge(true);
 
   eleventyConfig.addCollection("posts_de", function (collection) {
-    return collection.getFilteredByGlob(["./src/de/posts/*.md","./src/de/posts/*.adoc","./src/de/posts/*.html"]);
+    return collection.getFilteredByGlob(["./src/de/blog/posts/*.md","./src/de/blog/posts/*.adoc","./src/de/blog/posts/*.html"]);
   });
 
   eleventyConfig.addCollection("posts_en", function (collection) {
-    return collection.getFilteredByGlob(["./src/en/posts/*.md","./src/en/posts/*.adoc","./src/en/posts/*.html"]);
+    return collection.getFilteredByGlob(["./src/en/blog/posts/*.md","./src/en/blog/posts/*.adoc","./src/blog/en/posts/*.html"]);
   });
-
+  
+  eleventyConfig.addFilter("tagFilter", function(tags, tagname) {
+    return _.find(tags, { 'name': tagname });;
+  });
+  
+  eleventyConfig.addFilter("sortPostsByDate", function(posts, order) {
+	if(order === "desc") {
+		return [...posts].reverse();
+	}		
+    return posts;
+  });
+  
+  eleventyConfig.addFilter("filterPostsByAuthor", function(posts, author) {
+	return _.filter(posts, function(post) { return post.data.author == author; });
+  });
+  
+  eleventyConfig.addFilter("filterPostsByTag", function(posts, tag) {
+	return _.filter(posts, function(post) { return _.includes(post.data.tags, tag)});
+  });
+  
+  eleventyConfig.addFilter("chechIfLanguageMatch", function(data, page_url, item_data_locale,language_code) {
+	if(item_data_locale == language_code) {
+		if(data && data.page && data.page.url && data.page.url.length >= 4) {//prüfe ob URL gesetzt ist {
+			return data.page.url.substring(3) == page_url.substring(3)
+		}
+	}
+	return false
+  });  
+  
   eleventyConfig.setLibrary(
     'md',
     markdownIt(mdOptions)
@@ -59,7 +88,7 @@ module.exports = function (eleventyConfig) {
   );
 
   eleventyConfig.addPlugin(pluginTOC, {
-    tags: ['h2', 'h3', 'h4', 'h5'],
+    tags: ['h2', 'h3', 'h4'],
     wrapper: 'div',
 	ignoredElements: ['a']
   });
