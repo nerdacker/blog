@@ -1,15 +1,23 @@
 ---
+<<<<<<< HEAD:src/de/blog/index.njk
 permalink: /{{ locale }}/blog/index.html
 title: Posts
 translationKey: blog
 ---
+=======
+permalink: /{{ locale }}/index.html
+title: Beiträge
+translationKey: blog
+---
+
+>>>>>>> origin/post:src/de/pages/index.njk
 {% extends "default-with-aside.njk" %}
 {% block text %}
     <section class="w-full md:w-2/3 flex flex-col items-center px-3">
         {% set postslist = collections.posts_de %}
 
-        {% for post in postslist | reverse %}
-            <article class="flex flex-col shadow my-4">
+        {% for post in postslist | filterPostsByTag(tag.name) %}
+            <article class="flex flex-col shadow my-4 w-full">
                 <!-- Article Image -->
                 {% if post.data.image %}
                 <a href="{{ post.url }}" class="hover:opacity-75">
@@ -33,7 +41,7 @@ translationKey: blog
                     <!-- Tags -->
 					<div class="tags">
                     {% for posttag in post.data.tags %}
-						{% set tag = categories.categories | tagFilter(posttag) %}
+						{% set dtag = categories.categories | tagFilter(posttag) %}
                         {% include "partials/tag.njk" %}
                     {% endfor %}
 					</div>
@@ -56,6 +64,7 @@ translationKey: blog
     </section>
 {% endblock %}
 {% block sidebar %}
+<<<<<<< HEAD:src/de/blog/index.njk
 <div class="sortfilter">
 	<h3>
 		 {{translation.sort}} & {{translation.filter}}
@@ -76,3 +85,14 @@ translationKey: blog
 	</div>
 <div>
 {% endblock %}
+=======
+    <div class="xxx">
+        <h4 class="text-xl font-bold pb-4 m-2">
+            <span class="">A coole Sidebar</span>
+        </h4>
+        <div class="mx-6">
+		A Sidebar to be filled with pleasure and joy
+	</div>
+        <div>
+        {% endblock %}
+>>>>>>> origin/post:src/de/pages/index.njk
