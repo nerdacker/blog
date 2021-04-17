@@ -1,18 +1,18 @@
 ---
 pagination:
-  data: sortandfilter.date
+  data: categories.categories
   size: 1
-  alias: order
+  alias: tag
   addAllPagesToCollections: true
-permalink: /{{ locale }}/blog/date/{{ order | slug }}/index.html
+permalink: /{{ locale }}/blog/tag/{{ tag.name | slug }}/index.html
 title: Posts
 ---
 {% extends "default-with-aside.njk" %}
 {% block text %}
     <section class="w-full md:w-2/3 flex flex-col items-center px-3">
-        {% set postslist = collections.posts_de %}
+        {% set postslist = collections.posts_en %}
 
-        {% for post in postslist | sortPostsByDate(order) %}
+        {% for post in postslist | filterPostsByTag(tag.name) %}
 			{% include "partials/article.njk" %}
         {% endfor %}
     </section>

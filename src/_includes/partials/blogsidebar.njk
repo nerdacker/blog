@@ -1,0 +1,31 @@
+<div class="sortfilter">
+	<div class="m-6">
+		<div class="side-tags">
+			<h4>{{ i18n.tags }}</h4>
+			{% for dtag in categories.categories %}
+				{% if dtag == tag %} 
+					{% set selected = true %}
+				{% else %}
+					{% set selected = false %}
+				{% endif %}
+				{% include "partials/tag.njk" %}
+			{% endfor %}
+		</div>
+		<div class="side-authors">
+			<h4>{{ i18n.sortByAuthor }}</h4>
+			<ul class="list-disc pl-8">
+			{% for dauthor in authors.authors %}
+				<li><a href="/{{locale}}/blog/author/{{dauthor.name | slug}}/" class="{{colors.link-bg}} {% if dauthor == author %} underline {% endif %} text-sm font-bold pb-4 hover:text-gray-700">{{ dauthor.name }}</a></li>
+			{% endfor %}
+			</ul>
+		</div>
+		<div class="side-authors">
+			<h4>{{ i18n.sortByDate }}</h4>
+			<ul class="list-disc pl-8">
+			{% for dorder in sortandfilter.date %}
+				<li><a href="/{{locale}}/blog/date/{{dorder | slug}}/" class="{{colors.link-bg}} text-sm font-bold pb-4 {% if dorder == order %} underline {% endif %} hover:text-gray-700">{{ i18n.sortDateOpts[dorder] }}</a></li>
+			{% endfor %}
+			<ul>
+		</div>
+	</div>
+<div>

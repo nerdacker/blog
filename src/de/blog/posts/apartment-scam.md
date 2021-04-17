@@ -1,13 +1,11 @@
 ---
 title: Apartment Scam
-translationKey: apartment-scam
 description: Eine skurrile Erfahrung bei der Wohnungssuche auf die man verzichten kann
 date: 2017-09-16
 author: Alessio Bisgen
 image: /static/img/posts/apartment-scam/apartment-scam-1.jpg
 tags:
   - internet
-  - portale
   - scam
 
 ---

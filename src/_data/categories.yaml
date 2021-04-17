@@ -76,4 +76,12 @@ categories:
     de: "Zigbee"
     en: "zigbee"
     color: "green-100"
-#next colors:   gray-100 purple-200 gray-300 purple-100 indigo-200
+  - name: internet
+    de: "Internet"
+    en: "Internet"
+    color: "gray-100"
+  - name: scam
+    de: "Scam"
+    en: "Scam"
+    color: "purple-200"
+#next colors: gray-300 purple-100 indigo-200

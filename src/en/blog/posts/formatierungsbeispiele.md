@@ -1,6 +1,5 @@
 ---
 title: Formatierungsbeispiele
-translationKey: formatting-examples
 description: Diese kurze Übersicht zeigt verwendungsmöglichkeiten von Markdown beim Schreiben von Artikeln.
 date: "2016-01-01T06:00-06:00"
 author: Alessio Bisgen

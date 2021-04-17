@@ -1,9 +1,13 @@
 {
-	"translation": {
+	"i18n": {
 		"toc": "Inhaltsverzeichnis",
-		"sort": "Sortierung",
-		"filter": "Filterung",
-		"desc": "nach neuste zuerst",
-		"asc": "nach älteste zuerst"
+		"readMore": "Weiter lesen",
+		"tags": "Tags",
+		"sortByAuthor": "Nach Autor sortieren",
+		"sortByDate": "Nach Datum sortieren",
+		"sortDateOpts": {
+			"desc": "Neuste Beiträge zuerst anzeigen",
+			"asc": "Älteste Beiträge zuerst anzeigen"
+		}
 	}
-  }
+ }

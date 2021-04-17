@@ -70,7 +70,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("filterPostsByTag", function(posts, tag) {
 	return _.filter(posts, function(post) { return _.includes(post.data.tags, tag)});
   });
-
+  
+  eleventyConfig.addFilter("chechIfLanguageMatch", function(data, page_url, item_data_locale,language_code) {
+	if(item_data_locale == language_code) {
+		if(data && data.page && data.page.url && data.page.url.length >= 4) {//prüfe ob URL gesetzt ist {
+			return data.page.url.substring(3) == page_url.substring(3)
+		}
+	}
+	return false
+  });  
+  
   eleventyConfig.setLibrary(
     'md',
     markdownIt(mdOptions)
