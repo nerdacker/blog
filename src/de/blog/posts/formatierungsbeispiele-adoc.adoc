@@ -1,13 +1,12 @@
 ---
 title: FormatierungsbeispieleAdoc
 translationKey: formatting-examples-adoc
-description: Diese kurze Übersicht zeigt verwendungsmöglichkeiten von Markdown beim Schreiben von Artikeln.
+description: Diese kurze Übersicht zeigt verwendungsmöglichkeiten von Asciidoc beim Schreiben von Artikeln.
 date: 2021-01-26
 author: Joshua Schnabel
 image: https://cdn.britannica.com/25/93825-050-D1300547/collection-newspapers.jpg
 tags:
-  - allgemein
-
+  - software
 ---
 
 = Document Title 2
@@ -25,7 +24,7 @@ Beyond that, where you go is up to you.
 
 Your journey begins here.
 
-== AAAAA
+== TEST2
 
 It has *strong* significance to me.
 
@@ -36,8 +35,6 @@ Type `OK` to accept.
 That *_really_* has to go.
 
 Can't pick one? Let's use them `*_all_*`.
-
-== BBBBB
 
 A normal paragraph.
 
@@ -61,18 +58,12 @@ A normal paragraph.
 .. Step 2b
 . Step 3
 
-=== CCCCC
-
 .A mountain sunset
 [#img-sunset]
-[caption="Figure 1: "]
+[caption="Figure 1: ",link=https://www.flickr.com/photos/javh/5448336655]
 image::https://asciidoctor.org/images/octocat.jpg[GitHub mascot]
 
 video::rPQoq7ThGAU[youtube]
-
-=== DDDDD
-
-==== EEEEEE
 
 |===
 |Shortcut |Purpose
@@ -93,8 +84,6 @@ get '/hi' do
   "Hello World!"
 end
 ----
-
-==== FFFFFFFF
 
 [source,yaml]
 .example.yml

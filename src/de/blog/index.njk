@@ -1,12 +1,11 @@
 ---
-permalink: /{{ locale }}/index.html
-title: Beiträge
-layout: default-with-aside
+permalink: /{{ locale }}/blog/index.html
+title: Posts
 translationKey: blog
 ---
-
-{% block content %}
-    <section class="w-full flex flex-col items-center px-3">
+{% extends "default-with-aside.njk" %}
+{% block text %}
+    <section class="w-full md:w-2/3 flex flex-col items-center px-3">
         {% set postslist = collections.posts_de %}
 
         {% for post in postslist | reverse %}
@@ -20,21 +19,24 @@ translationKey: blog
                 </a>
                 {% endif %}
                 <div class="bg-white flex flex-col justify-start p-6">
-                    <!-- Tags -->
-                    {% for tag in post.data.tags %}
-                        <a href="/{{locale}}/tags/{{tag}}/" class="{{colors.link-bg}} text-sm font-bold uppercase pb-4 hover:text-gray-700">#{{ tag }}</a>
-                    {% endfor %}
                     <a href="{{ post.url | url }}" class="text-3xl font-bold hover:text-gray-700 pb-4">
                     {% if post.data.title %}
                     {{ post.data.title }}
                     {% else %}
-                    Unbenannt
+                    Unknown
                     {% endif %}
                     </a>
                     <!-- Untertitel -->
                     <p href="#" class="text-sm pb-3">
-                        <time>{{ post.date | localizedDate(localeRegion) }} von <a href="/{{ locale }}/author/{{ post.data.author | slug }}/" class="font-semibold hover:text-gray-800">{{ post.data.author }}</a></time>
+                        <time>{{ post.date | localizedDate(localeRegion) }} by <a href="/{{ locale }}/author/{{ post.data.author | slug }}/" class="font-semibold hover:text-gray-800">{{ post.data.author }}</a></time>
                     </p>
+                    <!-- Tags -->
+					<div class="tags">
+                    {% for posttag in post.data.tags %}
+						{% set tag = categories.categories | tagFilter(posttag) %}
+                        {% include "partials/tag.njk" %}
+                    {% endfor %}
+					</div>
                     <p class="text-base leading-6 text-gray-500 mb-3">
                     </p>
                     {% if post.data.description %}
@@ -45,11 +47,32 @@ translationKey: blog
 
                     <p>
                         <a href="{{ post.url | url }}" class="uppercase text-gray-800 hover:text-black">
-                          Mehr lesen →
+                          Read more →
                          </a>
                     </p>
                 </div>
             </article>
         {% endfor %}
     </section>
+{% endblock %}
+{% block sidebar %}
+<div class="sortfilter">
+	<h3>
+		 {{translation.sort}} & {{translation.filter}}
+	</h3>
+	<div class="mx-6">
+		<h4>Tags</h4>
+		{% for tag in categories.categories %}
+			{% include "partials/tag.njk" %}
+		{% endfor %}
+		<h4>Autoren</h4>
+		{% for author in authors.authors %}
+			<a href="/{{locale}}/blog/author/{{author.name | slug}}/" class="{{colors.link-bg}} text-sm font-bold pb-4 hover:text-gray-700">{{ author.name }}</a>
+		{% endfor %}
+		<h4>Datum</h4>
+		{% for order in sortandfilter.date %}
+			<a href="/{{locale}}/blog/date/{{order | slug}}/" class="{{colors.link-bg}} text-sm font-bold pb-4 hover:text-gray-700">Beiträge {{ translation[order] }} sortieren</a>
+		{% endfor %}
+	</div>
+<div>
 {% endblock %}

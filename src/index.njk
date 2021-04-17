@@ -9,7 +9,7 @@ layout: default
 <script>
 	var langs = {}
 {% for lang in site.languages %}
-	{% set translatedUrl = "/" + lang.code + "/" %}
+	{% set translatedUrl = "/" + lang.code + "/blog/" %}
 	langs["{{ lang.code }}"] = "{{ translatedUrl }}";
 {% endfor %}
 	var lng = window.navigator.userLanguage || window.navigator.language;

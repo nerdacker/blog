@@ -1,18 +1,19 @@
 ---
-title: How to format
+title: Formatierungsbeispiele
 translationKey: formatting-examples
-description: This short overview grants the ultimate introduction to the word of markdown-flavored article writing.
-date: 2021-01-26
+description: Diese kurze Übersicht zeigt verwendungsmöglichkeiten von Markdown beim Schreiben von Artikeln.
+date: "2016-01-01T06:00-06:00"
 author: Alessio Bisgen
 image: https://cdn.britannica.com/25/93825-050-D1300547/collection-newspapers.jpg
 tags:
-  - allgemein
-
+  - books
+  - climate
+  - games
 ---
 
-Some formatting examples
+Hier ein paar Formatierungsbeispiele
 
-## Heading 2
+## h2 Heading
 
 ### h3 Heading
 
@@ -91,12 +92,20 @@ Sample text here...
 
 Syntax highlighting
 
-```js
-var foo = function (bar) {
-  return bar++;
-};
+```java
+public class AsciiValue {
 
-console.log(foo(5));
+public static void main(String[] args) {
+
+      char ch = 'a';
+      int ascii = ch;
+      // You can also cast char to int
+      int castAscii = (int) ch;
+
+      System.out.println("The ASCII value of " + ch + " is: " + ascii);
+      System.out.println("The ASCII value of " + ch + " is: " + castAscii);
+  }
+}
 ```
 
 ## Tables
@@ -118,3 +127,5 @@ Autoconverted link https://github.com/nodeca/pica
 ## Images
 
 ![Minion](https://octodex.github.com/images/minion.png)
+
+

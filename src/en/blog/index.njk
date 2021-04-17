@@ -1,0 +1,64 @@
+---
+permalink: /{{ locale }}/blog/index.html
+title: Posts
+translationKey: blog
+---
+{% extends "default-with-aside.njk" %}
+{% block text %}
+    <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+        {% set postslist = collections.posts_en %}
+
+        {% for post in postslist | reverse %}
+            <article class="flex flex-col shadow my-4">
+                <!-- Article Image -->
+                {% if post.data.image %}
+                <a href="{{ post.url }}" class="hover:opacity-75">
+                    <div class="overflow-hidden" >
+                        <img src="{{ post.data.image }}" class="h-40 w-full object-cover transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+                    </div>
+                </a>
+                {% endif %}
+                <div class="bg-white flex flex-col justify-start p-6">
+                    <!-- Tags -->
+                    {% for tag in post.data.tags %}
+                        <a href="/{{locale}}/tags/{{tag}}/" class="{{colors.link-bg}} text-sm font-bold uppercase pb-4 hover:text-gray-700">#{{ tag }}</a>
+                    {% endfor %}
+                    <a href="{{ post.url | url }}" class="text-3xl font-bold hover:text-gray-700 pb-4">
+                    {% if post.data.title %}
+                    {{ post.data.title }}
+                    {% else %}
+                    Unknown
+                    {% endif %}
+                    </a>
+                    <!-- Untertitel -->
+                    <p href="#" class="text-sm pb-3">
+                        <time>{{ post.date | localizedDate(localeRegion) }} by <a href="/{{ locale }}/author/{{ post.data.author | slug }}/" class="font-semibold hover:text-gray-800">{{ post.data.author }}</a></time>
+                    </p>
+                    <p class="text-base leading-6 text-gray-500 mb-3">
+                    </p>
+                    {% if post.data.description %}
+                        <p class="pb-6">
+                            {{ post.data.description }}
+                        </p>
+                    {% endif %}
+
+                    <p>
+                        <a href="{{ post.url | url }}" class="uppercase text-gray-800 hover:text-black">
+                          Read more →
+                         </a>
+                    </p>
+                </div>
+            </article>
+        {% endfor %}
+    </section>
+{% endblock %}
+{% block sidebar %}
+<div class="sortfilter">
+	<h4 class="text-xl font-bold pb-4 m-2">
+		 {{translation.sort}} & {{translation.filter}}
+	</h4>
+	<div class="mx-6">
+		A Sidebar to be filled with pleasure and joy
+	</div>
+<div>
+{% endblock %}

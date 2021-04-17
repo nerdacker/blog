@@ -6,14 +6,13 @@ pagination:
 permalink: /{{locale}}/author/{{author.name | slug}}/
 layout: default
 ---
-{% block content %}
 
+{% block content %}
   <div class="container max-w-3xl mt-6 px-6">
-    <h1 class="font-bold text-5xl">Hello, I'm {{author.name}}</h1>
+    <h1 class="font-bold text-5xl">Hi, ich bin {{author.name}}</h1>
 
     <img src="{{author.photo}}" class="max-h-80 rounded-lg shadow-2xl mx-auto">
     <div class="container max-w-3xl mt-6 px-6">{{author['description_'+locale]}}</div>
 
   </div>
-
 {% endblock %}
