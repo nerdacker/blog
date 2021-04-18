@@ -71,14 +71,29 @@ module.exports = function (eleventyConfig) {
 	return _.filter(posts, function(post) { return _.includes(post.data.tags, tag)});
   });
   
-  eleventyConfig.addFilter("chechIfLanguageMatch", function(data, page_url, item_data_locale,language_code) {
-	if(item_data_locale == language_code) {
-		if(data && data.page && data.page.url && data.page.url.length >= 4) {//prüfe ob URL gesetzt ist {
-			return data.page.url.substring(3) == page_url.substring(3)
+  eleventyConfig.addFilter("ABCDEFF", function(data) {
+	console.log(data);
+	console.log(JSON.stringify(data));
+	return JSON.stringify(data);
+  });
+
+  eleventyConfig.addFilter("getLanguageMatch", function(items, page_url, language_code) {
+	let result = "/" + language_code + "/";
+	for (let item of items) {
+		let data = item.data;
+		if(data && data.page && data.page.url && data.locale) {
+			if(data.locale == language_code) {
+				if(data.page.url.length >= 4) {									
+					if (data.page.url.substring(3) == page_url.substring(3)) {
+						result = data.page.url;
+						break;
+					}						
+				}
+			}
 		}
 	}
-	return false
-  });  
+	return result;
+  }); 
   
   eleventyConfig.setLibrary(
     'md',

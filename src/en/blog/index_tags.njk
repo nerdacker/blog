@@ -12,7 +12,7 @@ title: Posts
     <section class="w-full md:w-2/3 flex flex-col items-center px-3">
         {% set postslist = collections.posts_en %}
 
-        {% for post in postslist | filterPostsByTag(tag.name) %}
+        {% for post in postslist | filterPostsByTag(tag.name) | sortPostsByDate("desc") %}
 			{% include "partials/article.njk" %}
         {% endfor %}
     </section>

@@ -1,10 +1,20 @@
 ---
-title: Impressum
 layout: default
+pagination:
+  data: site.languages
+  size: 1
+  alias: language
+  addAllPagesToCollections: true
+eleventyComputed:
+  title: "{{ i18n[language.locale].impress }}"
+  metaTitle: "{{ site.meta[language.locale].title }} - {{ title }}"
+  locale: "{{ language.locale }}"
+  localeRegion: "{{ language.localeRegion }}"
+  language: "{{ language.localeRegion }}"
+permalink: /{{language.locale}}/impress/
 ---
 
 {% block content %}
-
 	<section class="mt-15">
 		<div class="my-8"></div>
 		<h4>Angaben gemäß § 5 TMG</h4>
