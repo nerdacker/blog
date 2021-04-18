@@ -71,10 +71,8 @@ module.exports = function (eleventyConfig) {
 	return _.filter(posts, function(post) { return _.includes(post.data.tags, tag)});
   });
   
-  eleventyConfig.addFilter("ABCDEFF", function(data) {
-	console.log(data);
-	console.log(JSON.stringify(data));
-	return JSON.stringify(data);
+  eleventyConfig.addFilter("sortByName", function(authors) {
+	return _.sortBy(authors, ['name']);
   });
 
   eleventyConfig.addFilter("getLanguageMatch", function(items, page_url, language_code) {
