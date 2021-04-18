@@ -5,7 +5,9 @@ pagination:
   alias: order
   addAllPagesToCollections: true
 permalink: /{{ locale }}/blog/date/{{ order | slug }}/index.html
-title: Posts
+eleventyComputed:
+  title: "Beiträge sortiert nach Datum"
+  metaTitle: "{{ site.meta[locale].title }} - {{ title }}"
 ---
 {% extends "default-with-aside.njk" %}
 {% block text %}
@@ -13,7 +15,7 @@ title: Posts
         {% set postslist = collections.posts_de %}
 
         {% for post in postslist | sortPostsByDate(order) %}
-			{% include "partials/article.njk" %}
+			{% include "partials/articleoverview.njk" %}
         {% endfor %}
     </section>
 {% endblock %}

@@ -1,6 +1,8 @@
 ---
 permalink: /{{ locale }}/blog/index.html
-title: Posts
+eleventyComputed:
+  title: "Posts"
+  metaTitle: "{{ site.meta[locale].title }} - {{ title }}"
 ---
 
 {% extends "default-with-aside.njk" %}
@@ -8,7 +10,7 @@ title: Posts
     <section class="w-full md:w-2/3 flex flex-col items-center px-3">
         {% set postslist = collections.posts_en %}
         {% for post in postslist | sortPostsByDate("desc") %}
-			{% include "partials/article.njk" %}
+			{% include "partials/articleoverview.njk" %}
         {% endfor %}
     </section>
 {% endblock %}

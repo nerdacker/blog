@@ -8,6 +8,8 @@
 		"sortDateOpts": {
 			"desc": "Show latest posts first",
 			"asc": "Show oldest posts first"
-		}
+		},
+		"resetFilter": "Reset filter and sorting",
+		"reset": "Reset"
 	}
  }

@@ -1,6 +1,6 @@
 <div class="sortfilter">
 	<div class="m-6">
-		<div class="side-tags">
+		<div class="side-tags my-4">
 			<h4>{{ i18n.tags }}</h4>
 			{% for dtag in categories.categories %}
 				{% if dtag == tag %} 
@@ -11,7 +11,7 @@
 				{% include "partials/tag.njk" %}
 			{% endfor %}
 		</div>
-		<div class="side-authors">
+		<div class="side-authors my-4">
 			<h4>{{ i18n.sortByAuthor }}</h4>
 			<ul class="list-disc pl-8">
 			{% for dauthor in authors.authors %}
@@ -19,12 +19,18 @@
 			{% endfor %}
 			</ul>
 		</div>
-		<div class="side-authors">
+		<div class="side-authors my-4">
 			<h4>{{ i18n.sortByDate }}</h4>
 			<ul class="list-disc pl-8">
 			{% for dorder in sortandfilter.date %}
 				<li><a href="/{{locale}}/blog/date/{{dorder | slug}}/" class="{{colors.link-bg}} text-sm font-bold pb-4 {% if dorder == order %} underline {% endif %} hover:text-gray-700">{{ i18n.sortDateOpts[dorder] }}</a></li>
 			{% endfor %}
+			<ul>
+		</div>
+		<div class="side-reset my-4">
+			<h4>{{ i18n.reset }}</h4>
+			<ul class="list-disc pl-8">
+				<li><a href="/{{locale}}/blog/" class="{{colors.link-bg}} text-sm font-bold pb-4 hover:text-gray-700">{{ i18n.resetFilter }}</a></li>
 			<ul>
 		</div>
 	</div>
