@@ -3,25 +3,11 @@ const _ = require('lodash');
 const { DateTime } = require("luxon");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const htmlmin = require("html-minifier");
-const Eta = require("eta");
-const asciidoctor = require('asciidoctor')();
-const asciidoctorHtml5s = require("asciidoctor-html5s");
-const prismExtension = require('asciidoctor-prism-extension');
+const crypto = require('crypto');
 
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
 const pluginTOC = require('eleventy-plugin-nesting-toc');
-
-asciidoctorHtml5s.register();
-asciidoctor.SyntaxHighlighter.register('prism', prismExtension);
-
-const defaultOptions = {
-  safe: "unsafe",
-  attributes: {
-	  sectanchors: true,
-	  idprefix: ""
-  }
-}
 
 const mdOptions = {
   html: true,
@@ -74,18 +60,56 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("sortByName", function(authors) {
 	return _.sortBy(authors, ['name']);
   });
+  
+  eleventyConfig.addFilter("toPostHash", function(data) {
+	if(data) {
+		if(data instanceof Array)
+			data = data.join("-");
+		if(data instanceof Date)
+			data = data.toISOString();
+		return crypto.createHash("sha256").update(data).digest("hex").substring(0, 12);
+	}
+	return "";
+  });
+  
+  
+  
+  eleventyConfig.addFilter("dateToPath", function(date) {
+	formatDate = function(date) {
+		var d = new Date(date),
+			month = '' + (d.getMonth() + 1),
+			day = '' + d.getDate(),
+			year = d.getFullYear();
 
-  eleventyConfig.addFilter("getLanguageMatch", function(items, page_url, language_code) {
+		if (month.length < 2) 
+			month = '0' + month;
+		if (day.length < 2) 
+			day = '0' + day;
+
+		return [year, month, day].join('/');
+	}
+	if(date)
+		return formatDate(date);
+	return null;
+  });
+
+  eleventyConfig.addFilter("getLanguageMatch", function(items, page_url, language_code, page_postHash) {
 	let result = "/" + language_code + "/";
 	for (let item of items) {
 		let data = item.data;
 		if(data && data.page && data.page.url && data.locale) {
 			if(data.locale == language_code) {
-				if(data.page.url.length >= 4) {									
+				if(data.page.url.length >= 4) {
 					if (data.page.url.substring(3) == page_url.substring(3)) {
 						result = data.page.url;
 						break;
-					}						
+					}					
+				}
+				if(page_postHash && data.postHash) {
+					if(data.postHash == page_postHash) {
+						result = data.page.url;
+						break;			
+					}
 				}
 			}
 		}
@@ -174,26 +198,7 @@ module.exports = function (eleventyConfig) {
   
   eleventyConfig.addTemplateFormats("adoc");
 
-  eleventyConfig.addExtension("adoc", {
-    read: true,
-    getData: true,
-    getInstanceFromInputPath: function(inputPath) {
-		return ""
-    },
-    init: async function() {
-    },
-    compile: (str, inputPath) => (data) => {
-	  var linkTemplate = function (link, data) {
-		link = link.replace(/{{/g, '<%= it.').replace(/}}/g, '%>.');
-		return Eta.render(link, data)
-	  }
-	  //Check if str is Link
-	  if (str && typeof str === "string" && str.startsWith("/") && str.endsWith("/index.html")) {
-		return typeof str === "function" ? str(data) : linkTemplate(str,data);
-	  }
-	  return "<div class=\"adoc\">" + asciidoctor.convert(str, defaultOptions) +  "</div>";
-	}
-  });
+  eleventyConfig.addExtension("adoc", require('./.asciidoc.gen.js')(eleventyConfig));
 
   // Let Eleventy transform HTML files as nunjucks
   // So that we can use .html instead of .njk

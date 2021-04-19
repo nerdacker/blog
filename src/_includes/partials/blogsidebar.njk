@@ -14,7 +14,7 @@
 		<div class="side-authors my-4">
 			<h4>{{ i18n.sortByAuthor }}</h4>
 			<ul class="list-disc pl-8">
-			{% for dauthor in authors.authors %}
+			{% for dauthor in authors.authors | sortByName %}
 				<li><a href="/{{locale}}/blog/author/{{dauthor.name | slug}}/" class="{{colors.link-bg}} {% if dauthor == author %} underline {% endif %} text-sm font-bold pb-4 hover:text-gray-700">{{ dauthor.name }}</a></li>
 			{% endfor %}
 			</ul>
