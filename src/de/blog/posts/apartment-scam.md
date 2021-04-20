@@ -7,7 +7,6 @@ image: /static/img/posts/apartment-scam/apartment-scam-1.jpg
 tags:
   - internet
   - scam
-
 ---
 
 Neulich bei der Wohnungssuche ist mir ein sehr interessanter Fall begegnet. Ich suchte auf *Immobilienscout24*, was ja derzeit die meist benutzte Plattform ist. Da ich mir diese Mühen schon seit Wochen mache, war ich froh, endlich mal ein überaus interessantes Inserat zu sehen. Dieses wurde dienstagabends relativ spät eingestellt und darin wurde eine Wohnung beworben, die eigentlich zu gut aussah um für den angebotenen Preis von 500€ warm (!) echt zu sein. Das Inserat war in gutem deutsch formuliert und von einer mutmaßlich seriösen Immobilienagentur mit Sitz in Leipzig eingestellt.

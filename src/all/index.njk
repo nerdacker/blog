@@ -1,0 +1,16 @@
+---
+layout: redirect.njk
+pagination:
+  data: site.languages
+  size: 1
+  alias: language
+  addAllPagesToCollections: true
+eleventyComputed:
+  title: "Redirect"
+  metaTitle: "{{ site.meta[language.locale].title }} - {{ title }}"
+  locale: "{{ language.locale }}"
+  localeRegion: "{{ language.localeRegion }}"
+  language: "{{ language.localeRegion }}"
+  destination: "/{{ language.locale }}/blog/index.html"
+permalink: /{{language.locale}}/index.html
+---

@@ -5,6 +5,9 @@ pagination:
   alias: author
   addAllPagesToCollections: true
 permalink: /{{locale}}/author/{{author.name | slug}}/
+eleventyComputed:
+  title: "{{ author.name }}"
+  metaTitle: "{{ site.meta[locale].title }} - {{ title }}"
 layout: default
 ---
 

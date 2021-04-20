@@ -1,0 +1,12 @@
+{
+	"i18n": {
+		"de": {
+			"privacypolicy": "Datenschutzärerklärung",
+			"impress": "Impressum"
+		},
+		"en": {
+			"privacypolicy": "Privacy Policy",
+			"impress": "Impress"
+		}
+	}
+}

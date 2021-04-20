@@ -5,14 +5,16 @@ pagination:
   alias: tag
   addAllPagesToCollections: true
 permalink: /{{ locale }}/blog/tag/{{ tag.name | slug }}/index.html
-title: Posts
+eleventyComputed:
+  title: "Beiträge mit dem Tag {{tag[locale]}}"
+  metaTitle: "{{ site.meta[locale].title }} - {{ title }}"
 ---
 {% extends "default-with-aside.njk" %}
 {% block text %}
     <section class="w-full md:w-2/3 flex flex-col items-center px-3">
         {% set postslist = collections.posts_de %}
-        {% for post in postslist | filterPostsByTag(tag.name) %}
-			{% include "partials/article.njk" %}
+        {% for post in postslist | filterPostsByTag(tag.name) | sortPostsByDate("desc") %}
+			{% include "partials/articleoverview.njk" %}
         {% endfor %}
     </section>
 {% endblock %}

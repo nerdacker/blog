@@ -1,6 +1,17 @@
 ---
-title: Datenschutzärerklärung
 layout: default
+pagination:
+  data: site.languages
+  size: 1
+  alias: language
+  addAllPagesToCollections: true
+eleventyComputed:
+  title: "{{ i18n[language.locale].privacypolicy }}"
+  metaTitle: "{{ site.meta[language.locale].title }} - {{ title }}"
+  locale: "{{ language.locale }}"
+  localeRegion: "{{ language.localeRegion }}"
+  language: "{{ language.localeRegion }}"
+permalink: /{{language.code}}/impress/privacy/
 ---
 
 {% block content %}

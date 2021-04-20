@@ -1,0 +1,12 @@
+{
+	"i18n": {
+		"de": {
+			"aboutUs": "Über uns",
+			"aboutUsText": "Wir sind eine kleine Gruppe an IT-Spezialisten, Nerds und Enthusiasten, die diesen Blog gegründet haben, um unsere Projekte, Erfahrungen und Leidenschaften mit euch zu teilen. "
+		},
+		"en": {
+			"aboutUs": "About us",
+			"aboutUsText": "We are a small group of IT specialists, nerds and enthusiasts who started this blog to share our projects, experiences and passions with you. "
+		}
+	}
+}

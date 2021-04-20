@@ -37,24 +37,14 @@
                         <!-- Dropdown Body -->
                         <div x-show="dropdownOpen" @click="dropdownOpen = false" class="absolute right-0 w-40 mt-2 py-2 bg-white border rounded shadow-xl">
                             {% for language in site.languages %}
-
-                                {# default: auf homepage für sprache setzen #}
-                                {% set translatedUrl = "/" + language.code + "/" %}
-
-                                {# über alle beiträge iterieren #}
-                                {% for item in collections.all %}
-                                    {% if item.data | chechIfLanguageMatch(page.url, item.data.locale,language.code)  %}
-                                        {% set translatedUrl = item.url %}
-                                    {% endif %}
-                                    {% endfor%}
-
-                                    {% if language.flag !== currentflag %}
-                                        <a href="{{translatedUrl}}" class="transition-colors duration-200 block px-4 py-2 text-normal rounded">
-                                            <div style="width: 30px; height: 30px; top: 13px; left: 1.5ex; background-image: url(data:image/svg+xml;base64,{{language.flag}}); position: absolute;"></div>
-                                            <span class="inline-block align-middle text-black">{{language.label}}</span>
-                                        </a>
-                                    {% endif %}
-                                {% endfor %}
+								{% if language.flag !== currentflag %}
+									{% set translatedUrl = collections.all | getLanguageMatch(page.url, language.code, postHash) %}
+									<a href="{{translatedUrl}}" class="transition-colors duration-200 block px-4 py-2 text-normal rounded">
+										<div style="width: 30px; height: 30px; top: 13px; left: 1.5ex; background-image: url(data:image/svg+xml;base64,{{language.flag}}); position: absolute;"></div>
+										<span class="inline-block align-middle text-black">{{language.label}}</span>
+									</a>
+								{% endif %}
+							{% endfor %}
                             </div>
                             <!-- // Dropdown Body -->
                         </div>

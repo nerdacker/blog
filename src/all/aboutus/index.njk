@@ -1,6 +1,17 @@
 ---
-title: Das sind wir
 layout: default
+pagination:
+  data: site.languages
+  size: 1
+  alias: language
+  addAllPagesToCollections: true
+eleventyComputed:
+  title: "{{ i18n[language.locale].aboutUs }}"
+  metaTitle: "{{ site.meta[language.locale].title }} - {{ title }}"
+  locale: "{{ language.locale }}"
+  localeRegion: "{{ language.localeRegion }}"
+  language: "{{ language.localeRegion }}"
+permalink: /{{language.locale}}/aboutus/index.html
 ---
 
 {% block content %}
@@ -11,7 +22,7 @@ layout: default
 
         <div class="my-8"></div>
 
-        {% for author in authors.authors %}
+        {% for author in authors.authors | sortByName %}
             {% include "partials/authorcard.njk" %}
             <div class="my-8"></div>
         {% endfor %}

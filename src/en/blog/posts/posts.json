@@ -1,7 +1,11 @@
 {
-    "layout": "blogpost",
+    "layout": "partials/blogpost",
     "tags": [
         
     ],
-    "permalink": "/{{ locale }}/blog/post/{{ page.fileSlug }}/index.html"
+	"eleventyComputed": {
+		"dateString": "{{ date | dateToPath }}",
+		"postHash": "{{ date | toPostHash }}{{ author | toPostHash }}{{ image | toPostHash }}{{ tags | toPostHash}}",
+		"permalink": "/{{ locale }}/blog/post/{{dateString}}/{{ page.fileSlug }}/index.html"
+	}
 }
