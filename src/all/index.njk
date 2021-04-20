@@ -1,5 +1,5 @@
 ---
-layout: redirect.njk
+layout: redirect
 pagination:
   data: site.languages
   size: 1
@@ -11,6 +11,6 @@ eleventyComputed:
   locale: "{{ language.locale }}"
   localeRegion: "{{ language.localeRegion }}"
   language: "{{ language.localeRegion }}"
-  destination: "/{{ language.locale }}/blog/index.html"
+destination: "blog/index.html"
 permalink: /{{language.locale}}/index.html
 ---

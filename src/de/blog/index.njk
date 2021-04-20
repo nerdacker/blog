@@ -8,9 +8,8 @@ eleventyComputed:
 {% extends "default-with-aside.njk" %}
 {% block text %}
     <section class="w-full md:w-2/3 flex flex-col items-center px-3">
-        {% set postslist = collections.posts_de | sortPostsByDate("desc") %}
-
-        {% for post in postslist %}
+        {% set postslist = collections.posts_de %}
+        {% for post in postslist | sortPostsByDate("desc") %}
 			{% include "partials/articleoverview.njk" %}
         {% endfor %}
     </section>
