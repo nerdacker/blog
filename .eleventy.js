@@ -72,7 +72,11 @@ module.exports = function (eleventyConfig) {
 	return "";
   });
   
-  
+  eleventyConfig.addFilter("calculatePriority", function(path) {
+	if(path.includes("blog/post"))
+		return 0.7;
+	return Math.round((1 / Math.max(1, path.length / 3)) * 10) / 10  ;
+  });
   
   eleventyConfig.addFilter("dateToPath", function(date) {
 	formatDate = function(date) {
