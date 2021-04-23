@@ -10,7 +10,7 @@ eleventyExcludeFromCollections: true
             <loc>{{ site.baseUrl }}{{ page.url | url }}</loc>
             <lastmod>{{ page.date.toISOString() }}</lastmod>
             <changefreq>{{ page.data.changeFreq if page.data.changeFreq else "monthly" }}</changefreq>
-			<priority>{{ page.url | calculatePriority}}</priority>
+            <priority>{{ page.url | calculatePriority}}</priority>
         </url>
         {% endif %}
     {% endfor %}
