@@ -9,7 +9,7 @@ tags:
   - howto
 ---
 
-# ng new in a specific version
+## The problem: Angular CLI in a specific version
 
 Ever wanted to test out an angular application from a beta version or a release candidate but
 
@@ -23,7 +23,7 @@ doesen`t show up a param to specify a version?
 
 Yeah. Exactly what happened to me. In the post I will share how to do that. 
 
-# Short Story for the busy devs like me
+## The solution
 
 npm version used: 6.12.1
 node version used: v12.12.0
@@ -46,6 +46,7 @@ Installation takes quite some time. After all I was able to run the app as usual
     ng build
     ng build --prod
 
+## The rults for ivy
 
 So with ivy enabled by default? Following documentation: yes it is. Have a look here: https://next.angular.io/guide/ivy
 
