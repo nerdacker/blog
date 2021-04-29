@@ -32,7 +32,7 @@ and choose SCSS for styling lib. After setting up the base application, enter
 
 Magic lies within the custom-webpack from @angular-builders. We need to configure our project to use that instead of the default one. 
 
-First lets create a useful config. I found many incompatible configs because postcss and web pack seem to be very alive and APIs might change. This one works quite good as the time of writing (30.09.2020). so 
+First lets create a useful config. I found many incompatible configs because postcss and web pack seem to be very alive and APIs might change. This one works quite good as the time of writing (30.09.2020).
 
 ### Webpack
 
