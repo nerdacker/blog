@@ -11,6 +11,7 @@ layout: default
 {% for lang in site.languages %}
 	{% set translatedUrl = "/" + lang.code + "/blog/" %}
 	langs["{{ lang.code }}"] = "{{ translatedUrl }}";
+	langs["{{ lang.localeRegion }}"] = "{{ translatedUrl }}";
 {% endfor %}
 	var lng = window.navigator.userLanguage || window.navigator.language;
 	if(langs.hasOwnProperty(lng)) {
