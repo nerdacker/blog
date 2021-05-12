@@ -11,6 +11,8 @@
 			"asc": "Älteste Beiträge zuerst anzeigen"
 		},
 		"resetFilter": "Filter und Sortierung zurücksetzen",
-		"reset": "Zurücksetzen"
+		"reset": "Zurücksetzen",
+		"minutes": "Minuten",
+		"readingtime": "Lesezeit"
 	}
  }

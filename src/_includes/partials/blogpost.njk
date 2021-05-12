@@ -11,7 +11,8 @@ stickyAside: true
             <img src="{{image}}" class="w-full object-cover">
             <div class="mt-3">
                 {% for tag in tags %}
-                    <a href="/{{locale}}/tags/{{tag}}" class="mr-1 px-4 py-1 rounded {{ colors.background }} {{ colors.backgroundtext }} inline-flex items-center justify-center mb-2">#{{tag | getLocalizedTag(categories.categories, locale)}}</a>
+					{% set dtag = categories.categories | tagFilter(tag) %}
+					{% include "partials/tag.njk" %}
                 {% endfor %}
             </div>
         </div>
@@ -23,6 +24,9 @@ stickyAside: true
             <p class="text-center text-base leading-6 font-medium text-gray-500">
                 <time>{{ date | localizedDate(localeRegion) }} - <a href="/{{locale}}/author/{{author | slug}}">{{ author }}</a>
                 </time>
+            </p>
+            <p class="text-center text-base leading-6 font-medium text-gray-500">
+				{{i18n.readingtime}}: <b> {{ content | readingtime }} {{i18n.minutes}} </b>
             </p>
         </div>
         <p class="prose lg:prose-xl my-4 mx-auto"><i>{{description}}</i></p>
