@@ -11,6 +11,8 @@
 			"asc": "Show oldest posts first"
 		},
 		"resetFilter": "Reset filter and sorting",
-		"reset": "Reset"
+		"reset": "Reset",
+		"minutes": "Minutes",
+		"readingtime": "Reading time"
 	}
  }

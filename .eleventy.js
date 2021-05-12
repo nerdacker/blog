@@ -78,6 +78,12 @@ module.exports = function (eleventyConfig) {
 	return Math.round((1 / Math.max(1, path.length / 3)) * 10) / 10  ;
   });
   
+  //Lesezeit = Anzahl Wörter / 210 Wörter pro Min, aber min 2 Minuten
+  eleventyConfig.addFilter("readingtime", function(text) {
+	return Math.max(Math.ceil(text.split(" ").length / 210),2);
+  });
+  
+  
   eleventyConfig.addFilter("dateToPath", function(date) {
 	formatDate = function(date) {
 		var d = new Date(date),
