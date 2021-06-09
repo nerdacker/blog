@@ -3,7 +3,7 @@ title: Angular & TailwindCSS from Scratch
 description: There are many tutorials and posts out there about how to setup tailwindcss in an Angular application. Some work, some might not. Here is my log of how to setup, without much tinkering in configs and source code.
 date: "2020-09-30T00:00-00:00"
 author: Oliver Erxleben
-image: https://images.pexels.com/photos/996328/pexels-photo-996328.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260
+image: /static/img/posts/ng-tailwind-setup/title.jpeg
 tags:
   - Software
   - Howto

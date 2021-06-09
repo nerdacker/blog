@@ -7,7 +7,8 @@ const crypto = require('crypto');
 
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
-const pluginTOC = require('eleventy-plugin-nesting-toc');
+const pluginTOC = require('eleventy-plugin-nesting-toc')
+const pluginSrcsetImg = require('eleventy-plugin-srcset')
 
 const mdOptions = {
   html: true,
@@ -140,6 +141,16 @@ module.exports = function (eleventyConfig) {
 	ignoredElements: ['a']
   });
 
+  eleventyConfig.addPlugin( pluginSrcsetImg, {
+    srcsetWidths: [ 320, 480, 640, 960, 1280, 1600 ],
+    autoselector: 'article img',
+    createCaptions: true,
+    dirs: {
+      temp: "./.tmp/",
+      input: "./src/",
+      output: "./_site/"
+    }
+  });
 
   // date filter (localized)
   eleventyConfig.addNunjucksFilter("localizedDate", function (date, localeRegion) {
