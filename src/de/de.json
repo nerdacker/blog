@@ -1,5 +1,10 @@
 {
     "locale": "de",
     "localeRegion": "de-DE",
-    "language": "deutsch"
+    "language": "deutsch",
+	"eleventyComputed": {
+		"default_description": "{{ site.meta[locale].description }}",
+		"default_author": "{{ site.meta[locale].author }}",
+		"default_keywords": "{{ site.meta[locale].keywords }}"
+	}
 }

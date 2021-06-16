@@ -2,13 +2,33 @@
 <html lang="{{ locale }}">
   <head>
     <meta charset="utf-8">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+	{% if author|length %}
+	<meta name="author" content="{{author}}">
+	{% else %}
+	<meta name="author" content="{{default_author}}">
+	{% endif %}
+	<meta name="publisher" content="Nerdacker.de">
+	<meta name="copyright" content="Nerdacker.de">
+	{% if description|length %}
+	<meta name="description" content="{{description}}">
+	{% else %}
+	<meta name="description" content="{{default_description}}">
+	{% endif %}
+	{% if tags|length %}
+	<meta name="keywords" content="{{tags}}">
+	{% else %}
+	<meta name="keywords" content="{{default_keywords}}">
+	{% endif %}
+	<meta http-equiv="content-language" content="{{ locale }}">
+	<meta name="robots" content="index, follow">
     <title>{{ metaTitle }}</title>
     {% block head %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
     {% if prism == true %}
-      <link rel="stylesheet" type="text/css" href="/static/css/prism-tomorrow.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/prism-tomorrow.css">
     {% endif %}
   </head>
   <body>
