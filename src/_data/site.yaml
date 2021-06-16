@@ -17,6 +17,10 @@ meta:
   de:
     title: "Nerdacker"
     description: "Tolle Beiträge über Nerd stuff"
+    author: "Nerdacker.de"
+    keywords: "blog,nerd,iot,software,nerdacker,hardware"
   en:
     title: "Nerdacker"
     description: "Awesome writings about nerd stuff"
+    author: "Nerdacker.de"
+    keywords: "blog,nerd,iot,software,nerdacker,hardware"

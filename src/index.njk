@@ -3,6 +3,11 @@ pageTitle: Index
 title: Please choose your language
 templateClass: 'index'
 layout: default
+eleventyComputed:
+  metaTitle: "Nerdacker"
+  default_description: "{{ site.meta['de'].description }}"
+  default_author: "{{ site.meta['de'].author }}"
+  default_keywords: "{{ site.meta['de'].keywords }}"
 ---
 
 {% block content %}
