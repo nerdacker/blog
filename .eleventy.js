@@ -144,7 +144,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin( pluginSrcsetImg, {
     srcsetWidths: [ 320, 480, 640, 960, 1280, 1600 ],
     autoselector: 'article img',
+	fallbackWidth: 640,
     createCaptions: true,
+	resizeOriginal: true,
     dirs: {
       temp: "./.tmp/",
       input: "./src/",
@@ -154,8 +156,6 @@ module.exports = function (eleventyConfig) {
 
   // date filter (localized)
   eleventyConfig.addNunjucksFilter("localizedDate", function (date, localeRegion) {
-	  console.log("--->")
-	  console.log(localeRegion)
     localeRegion = localeRegion ? localeRegion : "de-DE";
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const result = new Date(date).toLocaleDateString(localeRegion, options);
