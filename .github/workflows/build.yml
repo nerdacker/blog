@@ -25,12 +25,19 @@ jobs:
         run: |
           yarn install
           yarn build
+          sleep 60
           
       - name: save build artifact
         uses: actions/upload-artifact@v2
         with:
           name: build-artifact
           path: _site/
+          
+      - name: save temp artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: temp-artifact
+          path: .tmp/
           
   deploy:
     runs-on: ubuntu-20.04
