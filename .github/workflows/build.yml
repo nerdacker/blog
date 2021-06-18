@@ -25,7 +25,7 @@ jobs:
         run: |
           yarn install
           yarn build
-          sleep 60
+          /bin/cp -rf ./.tmp/* ./_site/
           
       - name: save build artifact
         uses: actions/upload-artifact@v2
