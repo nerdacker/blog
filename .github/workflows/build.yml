@@ -33,12 +33,6 @@ jobs:
           name: build-artifact
           path: _site/
           
-      - name: save temp artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: temp-artifact
-          path: .tmp/
-          
   deploy:
     runs-on: ubuntu-20.04
     needs: build
