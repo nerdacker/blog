@@ -23,8 +23,8 @@ jobs:
 
       - name: Install dependencies & build
         run: |
-          npx yarn
-          npx yarn build
+          yarn install
+          yarn build
           
       - name: save build artifact
         uses: actions/upload-artifact@v2
