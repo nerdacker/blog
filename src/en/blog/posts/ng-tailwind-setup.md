@@ -5,8 +5,8 @@ date: "2020-09-30T00:00-00:00"
 author: Oliver Erxleben
 image: /static/img/posts/ng-tailwind-setup/title.jpeg
 tags:
-  - Software
-  - Howto
+  - software
+  - howto
 ---
 
 ### Prerequisites

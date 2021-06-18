@@ -79,9 +79,9 @@ module.exports = function (eleventyConfig) {
 	return Math.round((1 / Math.max(1, path.length / 3)) * 10) / 10  ;
   });
   
-  //Lesezeit = Anzahl Wörter / 210 Wörter pro Min, aber min 2 Minuten
+  //Lesezeit = Anzahl Wörter / 180 Wörter pro Min, aber min 2 Minuten
   eleventyConfig.addFilter("readingtime", function(text) {
-	return Math.max(Math.ceil(text.split(" ").length / 210),2);
+	return Math.max(Math.ceil(text.split(" ").length / 180),2);
   });
   
   
@@ -154,6 +154,8 @@ module.exports = function (eleventyConfig) {
 
   // date filter (localized)
   eleventyConfig.addNunjucksFilter("localizedDate", function (date, localeRegion) {
+	  console.log("--->")
+	  console.log(localeRegion)
     localeRegion = localeRegion ? localeRegion : "de-DE";
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const result = new Date(date).toLocaleDateString(localeRegion, options);
