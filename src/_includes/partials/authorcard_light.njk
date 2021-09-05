@@ -1,0 +1,27 @@
+<div class="max-w-4xl flex items-start h-auto flex-wrap mx-auto my-32 lg:my-0 ">
+    <a href="/{{locale}}/author/{{author | slug}}">
+    <!--Main Col-->
+    <div id="profile"
+        class="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0 border border-black">
+
+        <div class="p-4 md:p-12 text-center lg:text-left">
+            <!-- Image for mobile view-->
+            <div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
+                style="background-image: url('{{writer.photo}}')"></div>
+
+            <h3 class="text-3xl font-bold pt-8 lg:pt-0">{{writer.name}}</h3>
+            <div class="mx-auto lg:mx-0 w-full pt-3 border-b-2 border-black opacity-25"></div>
+
+            <p class="pt-8 text-sm">{{writer['description_'+locale]}}</p>
+
+        </div>
+
+    </div>
+
+    <!--Img Col-->
+    <div class="w-full lg:w-2/5 rounded-lg lg:rounded-r-lg lg:rounded-l-none shadow-2xl place-self-stretch">
+        <div class="h-full bg-cover bg-center bg-no-repeat rounded-lg lg:rounded-r-lg lg:rounded-l-none hidden lg:block"
+            style="background-image: url('{{writer.photo}}')"></div>
+    </div>
+    </a>
+</div>

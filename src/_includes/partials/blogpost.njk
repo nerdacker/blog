@@ -5,7 +5,7 @@ toc: true
 {% extends "default-with-aside.njk" %}
 
 {% block text %}
-<article class="flex w-full flex-col my-4">
+<div class="flex w-full flex-col my-4">
     {% if image %}
         <div class="container max-w-4xl">
             <img src="{{image}}" class="w-full object-cover">
@@ -35,11 +35,11 @@ toc: true
         </article>
         {% for writer in authors.authors %}
             {% if writer.name === author %}
-                {% include "partials/authorinfo.njk" %}
+                {% include "partials/authorcard_light.njk" %}
             {% endif %}
         {% endfor %}
     </div>
-</article>
+</div>
 {% endblock %}
 
 {% block sidebar %}
