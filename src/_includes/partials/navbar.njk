@@ -1,22 +1,14 @@
 <div class="{{ 'lg:fixed' if path == 'home' }} w-full {{ colors.background }} shadow">
-    <nav class="flex items-center justify-center lg:justify-between flex-wrap lg:px-0 container mx-auto" x-data="{ isopen: false }" @keydown.escape="isopen = false">
-        <!--Toggle button (hidden on large screens)-->
-        <button @click="isopen = !isopen" type="button" class="ml-auto block lg:hidden px-2 text-primary-500 hover:text-primary-500 focus:outline-none focus:text-primary-500" :class="{ 'transition transform-180': isopen }" aria-label="menu">
-            <svg class="h-6 w-6 fill-current text-white" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
-                <path x-show="isopen" fill-rule="evenodd" clip-rule="evenodd" d="m18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"/>
-                <path x-show="!isopen" fill-rule="evenodd" d="m4 5h16a1 1 0 0 1 0 2h4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2h4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2h4a1 1 0 0 1 0-2z"/>
-            </svg>
-        </button>
-
+    <nav class="flex items-center justify-center lg:justify-between flex-wrap lg:px-0 container mx-auto">
         <!--Menu-->
-        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto text-center" :class="{ 'block shadow-3xl': isopen, 'hidden': !isopen }" @click.away="isopen = false" x-show.transition="true">
+        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto text-center" :class="block shadow-3xl" x-show.transition="true">
 
             {% if navigation.items %}
 
                 <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
                     {% for item in navigation.items %}
-                        <li class="nav__item mr-3">
-                            <a @click="isopen = false" class="hover:underline px-4 hover:{{colors.link}} py-2 px-4" href="/{{locale}}/{{item.url_part}}">{{ item['text_'+locale] }}</a>
+                        <li class="nav__item">
+                            <a class="hover:underline px-4 hover:{{colors.link}} py-2 px-4" href="/{{locale}}/{{item.url_part}}">{{ item['text_'+locale] }}</a>
                         </li>
                     {% endfor %}
 
