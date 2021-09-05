@@ -37,8 +37,5 @@
     "postcss-nested": "^5.0.5",
     "prismjs": "^1.21.0",
     "tailwindcss": "^2.0.2"
-  },
-  "dependencies": {
-    "animate.css": "^4.1.1"
   }
 }
