@@ -5,7 +5,7 @@
 /*Your Custom CSS Goes here*/
 
 .animated {
-	animation-duration: 1s;
+	animation-duration: 0.3s;
 	animation-fill-mode: forwards !important;
 	animation-direction: normal !important;
 }

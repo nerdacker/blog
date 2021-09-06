@@ -38,7 +38,7 @@
         {% block text %}{% endblock %}
 
 	{% if toc == true %}
-  <aside x-data="{ open: false, start: true}">
+  <aside x-data="{ open: false, start: true}" @click.away="open = false">
     <button @click="{open = !open, start = false}" :class="{'border-2 border-gray-900':open}" class="z-40 fixed bottom-2 right-2 p-0 w-16 h-16 bg-gray-700 shadow-md rounded-full hover:bg-gray-900 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none">
       <img src="/static/img/toc.svg" width="20" class="w-6 h-6 inline-block"/>
     </button>
