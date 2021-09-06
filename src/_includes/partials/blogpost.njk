@@ -1,11 +1,11 @@
 ---
 prism: true
-stickyAside: true
+toc: true
 ---
 {% extends "default-with-aside.njk" %}
 
 {% block text %}
-<article class="flex w-full flex-col my-4">
+<div class="flex w-full flex-col my-4">
     {% if image %}
         <div class="container max-w-4xl">
             <img src="{{image}}" class="w-full object-cover">
@@ -29,22 +29,22 @@ stickyAside: true
 				{{i18n.readingtime}}: <b> {{ content | readingtime }} {{i18n.minutes}} </b>
             </p>
         </div>
-        <p class="prose lg:prose-xl my-4 mx-auto"><i>{{description}}</i></p>
-        <article class="prose lg:prose-xl my-4 mx-auto">
+        <p class="prose xl:prose-xl lg:prose-lg my-4 mx-auto"><i>{{description}}</i></p>
+        <article class="prose xl:prose-xl lg:prose-lg my-4 mx-auto">
             {{ content | safe }}
         </article>
         {% for writer in authors.authors %}
             {% if writer.name === author %}
-                {% include "partials/authorinfo.njk" %}
+                {% include "partials/authorcard_light.njk" %}
             {% endif %}
         {% endfor %}
     </div>
-</article>
+</div>
 {% endblock %}
 
 {% block sidebar %}
 <div class="toc">
-	<h4 class="text-xl font-bold pb-4 m-2">
+	<h4 class="text-xl font-bold m-2">
 		<img src="/static/img/toc.svg" width="40" class="inline"/> 
 		<span class="">{{i18n.toc}}</span>
 	</h4>

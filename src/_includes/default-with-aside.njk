@@ -36,13 +36,23 @@
     {% include "partials/header.njk"%}
     <div class="container mx-auto flex flex-wrap" id="content">
         {% block text %}{% endblock %}
-		
-	{% if stickyAside == true %}
+
+	{% if toc == true %}
+  <aside x-data="{ open: false, start: true}">
+    <button @click="{open = !open, start = false}" :class="{'border-2 border-gray-900':open}" class="z-40 fixed bottom-2 right-2 p-0 w-16 h-16 bg-gray-700 shadow-md rounded-full hover:bg-gray-900 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none">
+      <img src="/static/img/toc.svg" width="20" class="w-6 h-6 inline-block"/>
+    </button>
+    <div x-show="!start" class="animated text-white fixed border-t-2 border-gray-300 bg-gray-700 bottom-0 right-0 w-full pb-2 z-30 lg:w-1/3 xl:w-1/4 lg:h-full lg:border-t-0 lg:border-l-2 lg:pt-2"
+      :class="{ 'animated animate-slideInUp lg:animate-slideInRight': open, 'animated animate-slideOutDown lg:animate-slideOutRight': !open }">
+	{% elif stickyAside == true %}
     <aside class="my-4 fixed left-3/4 flex flex-col p-3 {{ colors.background }} {{ colors.backgroundtext }}  rounded-md shadow-lg" id="sidebar">
 	{% else %}
-	<aside class="my-4 w-full md:w-1/3 flex flex-col items-center rounded px-3 shadow bg-gray-100 text-gray-800" id="sidebar">
-    {% endif %}    
-        {% block sidebar %}{% endblock %}
+	  <aside class="my-4 w-full md:w-1/3 flex flex-col items-center rounded px-3 shadow bg-gray-100 text-gray-800" id="sidebar">
+    {% endif %}   
+      {% block sidebar %}{% endblock %}
+        {% if toc == true %}
+          </div>
+        {% endif %}   
     </aside>
     </div>
     {% include "partials/footer.njk" %}

@@ -15,6 +15,8 @@ permalink: /{{language.locale}}/impress/
 ---
 
 {% block content %}
+<div class="container max-w-4xl mt-6 px-6">
+  <div class="prose xl:prose-xl lg:prose-lg my-4 mx-auto">
 	<section class="mt-15">
 		<div class="my-8"></div>
 		<h4>Angaben gemäß § 5 TMG</h4>
@@ -63,17 +65,20 @@ permalink: /{{language.locale}}/impress/
 		Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
 	<h4>Datenschutz</h4>
 	<p class="mb-4">Unsere Datenschutzerklärung finden sie <a href="/de/impress/privacy/">hier</a>.</p>
+
+	<div class="my-8"></div>
+
+	<h4>Tracking</h4>
+	<iframe class="w-full h-48" style="margin-left: -8px"
+		src="https://matomo.nerdacker.de/index.php?module=CoreAdminHome&action=optOut&language=de&fontFamily=system-ui"></iframe>
+
 	<br>
 	<p>Impressum vom <a href="https://www.impressum-generator.de">Impressum Generator</a> der <a
 			href="https://www.kanzlei-hasselbach.de/standorte/frankfurt/" rel="nofollow">Kanzlei Hasselbach,
 			Frankfurt</a>
 	</p>
-
-	<div class="my-8"></div>
-
-	<h5>Tracking</h5>
-	<iframe class="w-full h-64" style="margin-left: -8px"
-		src="https://matomo.nerdacker.de/index.php?module=CoreAdminHome&action=optOut&language=de&fontFamily=system-ui"></iframe>
-</section>
+	</section>
+  </div>
+</div>
 
 {% endblock %}

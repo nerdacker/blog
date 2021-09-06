@@ -4,6 +4,12 @@
 
 /*Your Custom CSS Goes here*/
 
+.animated {
+	animation-duration: 1s;
+	animation-fill-mode: forwards !important;
+	animation-direction: normal !important;
+}
+
 h1 {
   @apply text-4xl tracking-tighter mb-3 text-center lg:text-7xl font-serif;
 }
