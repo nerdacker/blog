@@ -16,11 +16,12 @@ eleventyComputed:
 {% for lang in site.languages %}
 	{% set translatedUrl = "/" + lang.code + "/blog/" %}
 	langs["{{ lang.code }}"] = "{{ translatedUrl }}";
-	langs["{{ lang.localeRegion }}"] = "{{ translatedUrl }}";
 {% endfor %}
 	var lng = window.navigator.userLanguage || window.navigator.language;
-	if(langs.hasOwnProperty(lng)) {
+	if(langs.hasOwnProperty(lng.substring(0, 2))) {
 		window.open(langs[lng],"_self")
+	} else {
+		window.open("en","_self")
 	}
 </script>
 <div id="content" class="container max-w-3xl mt-6 px-6">
