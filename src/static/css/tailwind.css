@@ -37,12 +37,27 @@ html {
 
 /* ToC*/
 
-.toc {
+.rtoc {
 	a:hover {
 		text-decoration: underline white;
 	}
 	a.active {
 		font-weight: bold;
+	}
+	ol{
+	  margin-left: 0px;
+		ol{
+			margin-left:15px;
+			list-style-type: disc;
+			ol{
+				margin-left:22px;
+				list-style-type: circle;
+				ol{
+					margin-left:29px;
+					list-style-type: square;
+				}
+			}
+		}
 	}
 }
 
