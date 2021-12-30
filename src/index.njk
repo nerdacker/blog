@@ -18,7 +18,6 @@ eleventyComputed:
 	langs["{{ lang.code }}"] = "{{ translatedUrl }}";
 {% endfor %}
 	var lng = (window.navigator.userLanguage || window.navigator.language).substring(0,2);
-	console.log(langs, lng)
 	
 	if (langs.hasOwnProperty(lng)) {
 		window.location.href = `/${lng}`;
