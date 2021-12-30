@@ -17,14 +17,13 @@ eleventyComputed:
 	{% set translatedUrl = "/" + lang.code + "/blog/" %}
 	langs["{{ lang.code }}"] = "{{ translatedUrl }}";
 {% endfor %}
-	var lng = window.navigator.userLanguage || window.navigator.language;
-	console.log(langs, lng.substring(0, 2))
+	var lng = (window.navigator.userLanguage || window.navigator.language).substring(0,2);
+	console.log(langs, lng)
 	
-	if(langs.hasOwnProperty(lng.substring(0, 2))) {
-		window.open(langs[lng],"_self")
-		window.location.href = `/${lng}`
+	if (langs.hasOwnProperty(lng)) {
+		window.location.href = `/${lng}`;
 	} else {
-		window.location.href = `/en`
+		window.location.href = `/en`;
 	}
 </script>
 <div id="content" class="container max-w-3xl mt-6 px-6">
