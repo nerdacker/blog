@@ -22,8 +22,9 @@ eleventyComputed:
 	
 	if(langs.hasOwnProperty(lng.substring(0, 2))) {
 		window.open(langs[lng],"_self")
+		window.location.href = `/${lng}`
 	} else {
-		window.open("en","_self")
+		window.location.href = `/en`
 	}
 </script>
 <div id="content" class="container max-w-3xl mt-6 px-6">
