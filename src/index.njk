@@ -18,6 +18,8 @@ eleventyComputed:
 	langs["{{ lang.code }}"] = "{{ translatedUrl }}";
 {% endfor %}
 	var lng = window.navigator.userLanguage || window.navigator.language;
+	console.log(langs, lng.substring(0, 2))
+	
 	if(langs.hasOwnProperty(lng.substring(0, 2))) {
 		window.open(langs[lng],"_self")
 	} else {
