@@ -6,6 +6,3 @@ items:
   - text_de: Über Uns
     text_en: About Us
     url_part: "aboutus"
-  - text_de: Impressum
-    text_en: Impress
-    url_part: "impress"

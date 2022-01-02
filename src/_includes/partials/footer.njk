@@ -2,9 +2,7 @@
     <small class="text-gray-500">Copyright ©
         {{settings.name}}
         2020. Made with 🍺 by
-        {{settings.author}}
-        •
-        <a href="{{settings.github}}" class="underline" target="_blank" rel="noopener">View on Github</a>
+        {{settings.author}}<span class="invisible md:visible">&nbsp;•&nbsp; </span><br class="block md:hidden" /><a href="{{settings.github}}" class="underline" target="_blank" rel="noopener">View on Github</a>&nbsp;•&nbsp;<a href="/{{locale | defaultIfEmpty("en")}}/impress" class="underline">{{ i18n[locale | defaultIfEmpty("en")].impress }}</a>
     </small>
 
     <!-- Matomo -->

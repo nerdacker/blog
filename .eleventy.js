@@ -58,6 +58,19 @@ module.exports = function (eleventyConfig) {
 	return _.filter(posts, function(post) { return _.includes(post.data.tags, tag)});
   });
   
+  eleventyConfig.addFilter("defaultIfEmpty", function(value, defaultValue) {
+	if(typeof value !== 'undefined') {
+		return value;
+	} else {
+		return defaultValue;
+	}
+  });
+  
+  eleventyConfig.addFilter("debug", function(value) {
+	console.log(JSON.stringify(value));
+	return value;
+  });
+  
   eleventyConfig.addFilter("sortByName", function(authors) {
 	return _.sortBy(authors, ['name']);
   });
@@ -137,8 +150,9 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(pluginTOC, {
     tags: ['h2', 'h3', 'h4'],
-    wrapper: 'div',
-	ignoredElements: ['a']
+    wrapper: 'span',
+	ignoredElements: ['a'],
+	flat: false
   });
 
   eleventyConfig.addPlugin( pluginSrcsetImg, {
@@ -183,7 +197,7 @@ module.exports = function (eleventyConfig) {
   // To Support .yaml Extension in _data
   // You may remove this if you can use JSON
   eleventyConfig.addDataExtension("yaml", (contents) =>
-    yaml.safeLoad(contents)
+    yaml.load(contents)
   );
 
   // Add Tailwind Output CSS as Watch Target

@@ -16,11 +16,13 @@ eleventyComputed:
 {% for lang in site.languages %}
 	{% set translatedUrl = "/" + lang.code + "/blog/" %}
 	langs["{{ lang.code }}"] = "{{ translatedUrl }}";
-	langs["{{ lang.localeRegion }}"] = "{{ translatedUrl }}";
 {% endfor %}
-	var lng = window.navigator.userLanguage || window.navigator.language;
-	if(langs.hasOwnProperty(lng)) {
-		window.open(langs[lng],"_self")
+	var lng = (window.navigator.userLanguage || window.navigator.language).substring(0,2);
+	
+	if (langs.hasOwnProperty(lng)) {
+		window.location.href = `/${lng}`;
+	} else {
+		window.location.href = `/en`;
 	}
 </script>
 <div id="content" class="container max-w-3xl mt-6 px-6">

@@ -49,8 +49,12 @@ toc: true
 		<span class="">{{i18n.toc}}</span>
 	</h4>
 	<div class="mx-6">
-        <span class=""><a href="#">{{title}}</a></span>
-		{{ content | toc | safe }}
+		<div class="rtoc leading-normal md:leading-relaxed">
+			<ol>
+				<li><a href="#">{{title}}</a></li>
+				{{ content | toc | safe }}
+			</ol>
+		</div>
 	</div>
 <div>
 <script>
@@ -81,7 +85,9 @@ function init() {
             TOCitems.forEach( item => item.className = ""); // remove all classes
             const TOCitem = Array.from(document.querySelectorAll('.toc li a'))
                                 .filter(item => item.href.split('#')[1] === min.obj.id)[0];
-            TOCitem.className = "active";
+			if(typeof TOCitem !== "undefined") {
+				TOCitem.className = "active";
+			}
         }
 
     }
