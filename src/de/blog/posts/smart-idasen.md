@@ -114,9 +114,9 @@ Es folgen die restlichen OpenHAB Konfigurationsdateien
 
 ### .items
 
-Hier erstellen wir drei Items, die an die drei erstellten Things binden. Zum Steuern der Geräte über einen Google-Assistant Sprachbefehl verwende ich die [Google Assistant Action](https://www.openhab.org/docs/ecosystem/google-assistant/). Hierbei wird über das Attribut ```ga="Switch"``` festgelegt, dass diese Items in Google Assistant als Schalter erkannt werden sollen. Es spielt dabei keine Rolle, ob die Schalter den Zustand ON, oder OFF besitzen, da der Thing Channel bei jedem Zustandswechsel getriggert wird. Die neuen Schalter werden nun an Google Home mit dem jeweiligen Namen des Items übergeben.
+Hier erstellen wir drei Items, die an die drei erstellten Things binden. Zum Steuern der Geräte über einen Google-Assistant Sprachbefehl verwende ich die [Google Assistant Action](https://www.openhab.org/docs/ecosystem/google-assistant/). Hierbei wird über das Attribut `ga="Switch"` festgelegt, dass diese Items in Google Assistant als Schalter erkannt werden sollen. Es spielt dabei keine Rolle, ob die Schalter den Zustand ON, oder OFF besitzen, da der Thing Channel bei jedem Zustandswechsel getriggert wird. Die neuen Schalter werden nun an Google Home mit dem jeweiligen Namen des Items übergeben.
 
-Weiterhin wird beim Item *idasenHeight* über eine [Regex Transformation](https://www.openhab.org/addons/transformations/regex/) der vom idasen-cli übermittelte Höhenwert in eine korrekte Meterangabe geparst. Dies ist notwendig, da der Höhenwert vom Exec-Binding als String mit der kompletten Ausgabe des Befehls zurückgegeben wird, z.B. als ```1.199 meters```
+Weiterhin wird beim Item *idasenHeight* über eine [Regex Transformation](https://www.openhab.org/addons/transformations/regex/) der vom idasen-cli übermittelte Höhenwert in eine korrekte Meterangabe geparst. Dies ist notwendig, da der Höhenwert vom Exec-Binding als String mit der kompletten Ausgabe des Befehls zurückgegeben wird, z.B. als `1.199 meters`
 
 ```scala
 Switch idasenStand "Schreibtisch Stehen" {channel="exec:command:idasenstand:run", ga="Switch"}
