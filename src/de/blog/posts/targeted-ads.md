@@ -33,7 +33,7 @@ Neben dem reinen Verlauf, spielen Cookies und Tracker-Skripte eine große Rolle 
 Ferner wird den Anbietern die Aktivität in Smartphone-Apps über einen ähnlichen Weg mitgeteilt[[2](https://irights.info/artikel/was-ist-und-wie-funktioniert-webtracking/23386)\], da diese ebenfalls die Nutzerdatenbanken beliefern. Inzwischen sind Like-Buttons etwas aus der Mode gekommen, umso besser für Trackende, dass auch unsichtbare Tracking-Möglichkeiten (z.B. Tracking-Pixel) existieren.
 Die Kunst, auf Basis von Nutzerinteraktionen und deren verwendeter Hardware (Browser, Gerät, Einstellungen im Browser) Rückschlüsse über Individuen zu treffen nennt man übrigens _Fingerprinting_.
 
-## Was können wir dagenen tun?
+## Was können wir dagegen tun?
 
 Seit den Beschlüssen in der Europäischen Datenschutzgrundverordnung (DSGVO) 2018 soll die Persönlichkeit eines Nutzers geschützt werden, indem diesem klar mitgeteilt wird, dass personenbezogene Daten erhoben und verarbeitet werden. Daten sind dann personenbezogen, wenn sie Rückschlüsse auf eine bestimmte Person zulassen, wozu nach deutschem Recht neben Namen und Adressen auch IP-Adressen zählen. Dies erklärt, warum wir beim browsen öfter, als es uns lieb ist, auf Webseiten von einem Cookie-Opt-Out-Banner begrüßt werden. Wir erklären damit, dass wir mit der Verarbeitung dieser erhebbaren Informationen einverstanden sind.
 Hier befindet sich (bei rechtlich korrekter Implementierung) auch meist eine Möglichkeit, der Speicherung von Cookies und damit der einfachen Wiedererkennbarkeit zu widersprechen.
