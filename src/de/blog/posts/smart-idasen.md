@@ -15,7 +15,9 @@ Ich habe meinen Schreibtisch vor einem Jahr mit dem [Idåsen](https://www.ikea.c
 
 ## Das Ziel
 
-Um auf das lange manuelle Gedrückhalten von Knöpfen zu verzichten und eine Schnittstelle fürs Smarthome zur Verfügung zu stellen, wollen wir eine Möglichkeit schaffen, wie der Tisch minimalinvasiv gesteuert werden kann. Dazu bietet sich die Nutzung der BLE-Schnittstelle an (*Bluetooth Low Energy*), über die auch die App mit dem Tisch kommuniziert. So muss nichts gelötet werden und wir greifen nicht in die Elektronik des Tisches ein.
+Um auf das lange manuelle Gedrückhalten von Knöpfen zu verzichten und eine Schnittstelle fürs Smarthome zur Verfügung zu stellen, wollen wir eine Möglichkeit schaffen, wie der Tisch minimalinvasiv gesteuert werden kann. Dazu bietet sich die Nutzung der BLE-Schnittstelle an (*Bluetooth Low Energy*), über die auch die App mit dem Tisch kommuniziert. So muss nichts gelötet werden und wir greifen nicht in die Elektronik des Tisches ein. 
+
+BLE ähnelt dem klassischen Bluetooth in den meisten Punkten, verwendet jedoch eine andere Datenübertragungsmethode, die nicht mit ersterem interferiert und für deutlich geringere Datenmengen ausgelegt ist. Neben ZigBee ist es eine der großen Standardtechnologien zum Datenaustausch im IoT-Bereich.
 
 Folgende Bedingungen wollen wir erreichen:
 
@@ -39,7 +41,7 @@ Die App listet alle BLE-Geräte in der Umgebung auf, zusammen mit ihrer MAC-Adre
 
 ## 2. Pi mit dem Schreibtisch koppeln
 
-Nun müssen wir eine permanente Bluetooth-Verbindung mit dem Schreibtisch herstellen. Dies tun wir mit dem Tool [bluetoothctl](https://kofler.info/bluetooth-konfiguration-im-terminal-mit-bluetoothctl/), welches einen interaktiven Weg bereitstellt, Bluetooth-Geräte zu verwalten. Folgende Befehle werden benötigt:
+Nun müssen wir eine wiederverwendbare Bluetooth-Verbindung mit dem Schreibtisch herstellen. Dies tun wir mit dem Tool [bluetoothctl](https://kofler.info/bluetooth-konfiguration-im-terminal-mit-bluetoothctl/), welches einen interaktiven Weg bereitstellt, Bluetooth-Geräte zu verwalten. Folgende Befehle werden benötigt:
 
 ```bash
 bluetoothctl  # den Bluetooth-Agenten starten
@@ -52,7 +54,7 @@ connect AA:AA:AA:AA:AA:AA  # Verbindung herstellen
 exit  # Agenten verlassen
 ```
 
-An dieser Stelle ist der Tisch gekoppelt und sollte nun automatisch verbunden werden, sofern er in Reichweite ist. Das können wir verifizieren, indem wir den Pi einmal neu starten und dann mit `bluetoothctl info AA:AA:AA:AA:AA:AA` prüfen, ob unser Schreibtisch noch gekoppelt ist. Dabei muss der Tisch nicht unbedingt als *connected* gekennzeichnet sein, da die Verbindung erst kurzfristig vor dem Datenaustausch mit dem Schreibtisch hergestellt wird.
+An dieser Stelle ist der Tisch gekoppelt und sollte nun automatisch verbunden werden, sofern er in Reichweite ist. Das können wir verifizieren, indem wir den Pi einmal neu starten und dann mit `bluetoothctl info AA:AA:AA:AA:AA:AA` prüfen, ob unser Schreibtisch noch gekoppelt ist. Dabei muss der Tisch nicht unbedingt als *connected* gekennzeichnet sein, da die Verbindung erst kurzfristig vor dem Datenaustausch mit dem Schreibtisch hergestellt wird und danach nur wenige sekunden bestehen bleibt.
 
 ## 3. Raspberry-Pi vorbereiten - Desk-Controller installieren
 
