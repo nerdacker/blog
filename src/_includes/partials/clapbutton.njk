@@ -1,0 +1,61 @@
+<div x-data="clapData" x-init="queryClaps">
+    <div 
+    x-text="count" x-show="count > 0"
+    class="flex justify-center"></div>
+    <button 
+    x-on:click="handleClapButtonClicked()"
+    class="active:animate-bounce mb-4 p-0 w-16 h-16 border-2 border-gray-900 shadow-md rounded-full active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none">
+        <img src="/static/img/hand.svg" width="20" class="w-6 h-6 inline-block"/>
+    </button>
+</div>
+
+<script type="module">
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+    import {getFirestore, collection, getDocs, doc, setDoc} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    const db = getFirestore();
+
+    // as the script type is module, alle variables are scoped to the script tag and we need to provide a publicly available interface to the rest of the JS world
+    window.firebase = {
+        collection,
+        db,
+        doc,
+        getDocs,
+        setDoc
+    };
+</script>
+
+<script>
+
+    const clapData = {
+
+        count: 0,
+        doc: null,
+        async queryClaps() {
+            console.log(window.firebase)
+            const snap = await window
+                .firebase
+                .getDocs(window.firebase.collection(window.firebase.db, "posts"));
+
+            snap.forEach((doc) => {
+                this.doc = doc.id
+                this.count = doc
+                    .data()
+                    .claps;
+            });
+
+        },
+        async handleClapButtonClicked() {
+            this.count += 1;
+            // after a short amount of time, update firestore
+
+            await window
+                .firebase
+                .setDoc(window.firebase.doc(window.firebase.db, 'posts', this.doc), {claps: this.count})
+
+        }
+    }
+</script>

@@ -32,135 +32,135 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setDataDeepMerge(true);
 
   eleventyConfig.addCollection("posts_de", function (collection) {
-    return collection.getFilteredByGlob(["./src/de/blog/posts/*.md","./src/de/blog/posts/*.adoc","./src/de/blog/posts/*.html"]);
+    return collection.getFilteredByGlob(["./src/de/blog/posts/*.md", "./src/de/blog/posts/*.adoc", "./src/de/blog/posts/*.html"]);
   });
 
   eleventyConfig.addCollection("posts_en", function (collection) {
-    return collection.getFilteredByGlob(["./src/en/blog/posts/*.md","./src/en/blog/posts/*.adoc","./src/blog/en/posts/*.html"]);
+    return collection.getFilteredByGlob(["./src/en/blog/posts/*.md", "./src/en/blog/posts/*.adoc", "./src/blog/en/posts/*.html"]);
   });
-  
-  eleventyConfig.addFilter("tagFilter", function(tags, tagname) {
+
+  eleventyConfig.addFilter("tagFilter", function (tags, tagname) {
     return _.find(tags, { 'name': tagname });;
   });
-  
-  eleventyConfig.addFilter("sortPostsByDate", function(posts, order) {
-	if(order === "desc") {
-		return [...posts].reverse();
-	}		
+
+  eleventyConfig.addFilter("sortPostsByDate", function (posts, order) {
+    if (order === "desc") {
+      return [...posts].reverse();
+    }
     return posts;
   });
-  
-  eleventyConfig.addFilter("filterPostsByAuthor", function(posts, author) {
-	return _.filter(posts, function(post) { return post.data.author == author; });
+
+  eleventyConfig.addFilter("filterPostsByAuthor", function (posts, author) {
+    return _.filter(posts, function (post) { return post.data.author == author; });
   });
-  
-  eleventyConfig.addFilter("filterPostsByTag", function(posts, tag) {
-	return _.filter(posts, function(post) { return _.includes(post.data.tags, tag)});
+
+  eleventyConfig.addFilter("filterPostsByTag", function (posts, tag) {
+    return _.filter(posts, function (post) { return _.includes(post.data.tags, tag) });
   });
-  
-  eleventyConfig.addFilter("defaultIfEmpty", function(value, defaultValue) {
-	if(typeof value !== 'undefined') {
-		return value;
-	} else {
-		return defaultValue;
-	}
+
+  eleventyConfig.addFilter("defaultIfEmpty", function (value, defaultValue) {
+    if (typeof value !== 'undefined') {
+      return value;
+    } else {
+      return defaultValue;
+    }
   });
-  
-  eleventyConfig.addFilter("debug", function(value) {
-	console.log(JSON.stringify(value));
-	return value;
+
+  eleventyConfig.addFilter("debug", function (value) {
+    console.log(JSON.stringify(value));
+    return value;
   });
-  
-  eleventyConfig.addFilter("sortByName", function(authors) {
-	return _.sortBy(authors, ['name']);
+
+  eleventyConfig.addFilter("sortByName", function (authors) {
+    return _.sortBy(authors, ['name']);
   });
-  
-  eleventyConfig.addFilter("toPostHash", function(data) {
-	if(data) {
-		if(data instanceof Array)
-			data = data.join("-");
-		if(data instanceof Date)
-			data = data.toISOString();
-		return crypto.createHash("sha256").update(data).digest("hex").substring(0, 12);
-	}
-	return "";
+
+  eleventyConfig.addFilter("toPostHash", function (data) {
+    if (data) {
+      if (data instanceof Array)
+        data = data.join("-");
+      if (data instanceof Date)
+        data = data.toISOString();
+      return crypto.createHash("sha256").update(data).digest("hex").substring(0, 12);
+    }
+    return "";
   });
-  
-  eleventyConfig.addFilter("calculatePriority", function(path) {
-	if(path.includes("blog/post"))
-		return 0.7;
-	return Math.round((1 / Math.max(1, path.length / 3)) * 10) / 10  ;
+
+  eleventyConfig.addFilter("calculatePriority", function (path) {
+    if (path.includes("blog/post"))
+      return 0.7;
+    return Math.round((1 / Math.max(1, path.length / 3)) * 10) / 10;
   });
-  
+
   //Lesezeit = Anzahl Wörter / 180 Wörter pro Min, aber min 2 Minuten
-  eleventyConfig.addFilter("readingtime", function(text) {
-	return Math.max(Math.ceil(text.split(" ").length / 180),2);
-  });
-  
-  
-  eleventyConfig.addFilter("dateToPath", function(date) {
-	formatDate = function(date) {
-		var d = new Date(date),
-			month = '' + (d.getMonth() + 1),
-			day = '' + d.getDate(),
-			year = d.getFullYear();
-
-		if (month.length < 2) 
-			month = '0' + month;
-		if (day.length < 2) 
-			day = '0' + day;
-
-		return [year, month, day].join('/');
-	}
-	if(date)
-		return formatDate(date);
-	return null;
+  eleventyConfig.addFilter("readingtime", function (text) {
+    return Math.max(Math.ceil(text.split(" ").length / 180), 2);
   });
 
-  eleventyConfig.addFilter("getLanguageMatch", function(items, page_url, language_code, page_postHash) {
-	let result = "/" + language_code + "/";
-	for (let item of items) {
-		let data = item.data;
-		if(data && data.page && data.page.url && data.locale) {
-			if(data.locale == language_code) {
-				if(data.page.url.length >= 4) {
-					if (data.page.url.substring(3) == page_url.substring(3)) {
-						result = data.page.url;
-						break;
-					}					
-				}
-				if(page_postHash && data.postHash) {
-					if(data.postHash == page_postHash) {
-						result = data.page.url;
-						break;			
-					}
-				}
-			}
-		}
-	}
-	return result;
-  }); 
-  
+
+  eleventyConfig.addFilter("dateToPath", function (date) {
+    formatDate = function (date) {
+      var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+      if (month.length < 2)
+        month = '0' + month;
+      if (day.length < 2)
+        day = '0' + day;
+
+      return [year, month, day].join('/');
+    }
+    if (date)
+      return formatDate(date);
+    return null;
+  });
+
+  eleventyConfig.addFilter("getLanguageMatch", function (items, page_url, language_code, page_postHash) {
+    let result = "/" + language_code + "/";
+    for (let item of items) {
+      let data = item.data;
+      if (data && data.page && data.page.url && data.locale) {
+        if (data.locale == language_code) {
+          if (data.page.url.length >= 4) {
+            if (data.page.url.substring(3) == page_url.substring(3)) {
+              result = data.page.url;
+              break;
+            }
+          }
+          if (page_postHash && data.postHash) {
+            if (data.postHash == page_postHash) {
+              result = data.page.url;
+              break;
+            }
+          }
+        }
+      }
+    }
+    return result;
+  });
+
   eleventyConfig.setLibrary(
     'md',
     markdownIt(mdOptions)
       .use(markdownItAnchor, mdAnchorOpts)
-      // .use(markdownItHighlightJS)
+    // .use(markdownItHighlightJS)
   );
 
   eleventyConfig.addPlugin(pluginTOC, {
     tags: ['h2', 'h3', 'h4'],
     wrapper: 'span',
-	ignoredElements: ['a'],
-	flat: false
+    ignoredElements: ['a'],
+    flat: false
   });
 
-  eleventyConfig.addPlugin( pluginSrcsetImg, {
-    srcsetWidths: [ 320, 480, 640, 960, 1280, 1600 ],
+  eleventyConfig.addPlugin(pluginSrcsetImg, {
+    srcsetWidths: [320, 480, 640, 960, 1280, 1600],
     autoselector: 'article img',
-	fallbackWidth: 640,
+    fallbackWidth: 640,
     createCaptions: true,
-	resizeOriginal: true,
+    resizeOriginal: true,
     dirs: {
       temp: "./.tmp/",
       input: "./src/",
@@ -205,11 +205,14 @@ module.exports = function (eleventyConfig) {
 
   // Copy Static Files to /_Site
   eleventyConfig.addPassthroughCopy({
-    "./_tmp/static/css/style.css": "./static/css/style.css",
     "./src/admin/config.yml": "./admin/config.yml",
+    "./node_modules/prismjs/themes/prism-tomorrow.css": "./static/css/prism-tomorrow.css",
+    "./_tmp/static/css/style.css": "./static/css/style.css",
     "./node_modules/alpinejs/dist/alpine.js": "./static/js/alpine.js",
-    "./node_modules/prismjs/themes/prism-tomorrow.css":
-      "./static/css/prism-tomorrow.css",
+    "./node_modules/firebase/app": "./static/js/firebase/app",
+    "./src/static/js/firebase-config.js": "./static/js/firebase-config.js",
+    "./src/static/js/firebase-credentials.js": "./static/js/firebase-credentials.js",
+    "./src/static/js/app.js": "./static/js/app.js"
   });
 
   // Copy Image Folder to /_site
@@ -232,7 +235,7 @@ module.exports = function (eleventyConfig) {
 
     return content;
   });
-  
+
   eleventyConfig.addTemplateFormats("adoc");
 
   eleventyConfig.addExtension("adoc", require('./.asciidoc.gen.js')(eleventyConfig));

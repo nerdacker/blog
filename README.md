@@ -70,3 +70,6 @@ tags:
 - [base64encoder](https://www.base64encode.org/) _base64 transformation for better yaml storage_
 
 
+## Firebase
+
+you need to add firebase-credentials.js to src/static/js folder in order to be able to establish firebase. :)

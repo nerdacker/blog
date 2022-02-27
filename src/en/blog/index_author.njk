@@ -9,7 +9,7 @@ eleventyComputed:
   title: "Posts by {{author.name}}"
   metaTitle: "{{ site.meta[locale].title }} - {{ title }}"
 ---
-{% extends "default-with-aside.njk" %}
+{% extends "default_with_aside.njk" %}
 {% block text %}
     <section class="w-full md:w-2/3 flex flex-col items-center px-3">
         {% set postslist = collections.posts_en %}

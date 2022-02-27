@@ -2,117 +2,139 @@
 prism: true
 toc: true
 ---
-{% extends "default-with-aside.njk" %}
+{% extends "default_with_aside.njk" %}
 
 {% block text %}
-<div class="flex w-full flex-col my-4">
-    {% if image %}
-        <div class="container max-w-4xl">
-            <img src="{{image}}" class="w-full object-cover">
-            <div class="mt-3">
-                {% for tag in tags %}
-					{% set dtag = categories.categories | tagFilter(tag) %}
-					{% include "partials/tag.njk" %}
-                {% endfor %}
+    <div class="flex w-full flex-col my-4">
+        {% if image %}
+            <div class="container max-w-4xl">
+                <img src="{{image}}" class="w-full object-cover">
+                <div class="mt-3">
+                    {% for tag in tags %}
+                        {% set dtag = categories.categories | tagFilter(tag) %}
+                        {% include "partials/tag.njk" %}
+                    {% endfor %}
+                </div>
             </div>
-        </div>
-    {% endif %}
+        {% endif %}
 
-    <div class="container max-w-4xl mt-6  px-6">
-        <div class="pb-5 mb-5 border-b border-gray-100">
-            <h1 class="font-bold text-5xl">{{title}}</h1>
-            <p class="text-center text-base leading-6 font-medium text-gray-500">
-                <time>{{ date | localizedDate(localeRegion) }} - <a href="/{{locale}}/author/{{author | slug}}">{{ author }}</a>
-                </time>
+        <div class="container max-w-4xl mt-6  px-6">
+            <div class="pb-5 mb-5 border-b border-gray-100">
+                <h1 class="font-bold text-5xl">{{title}}</h1>
+                <p class="text-center text-base leading-6 font-medium text-gray-500">
+                    <time>{{ date | localizedDate(localeRegion) }} - <a href="/{{locale}}/author/{{author}}">{{ author }}</a>
+                    </time>
+                </p>
+                <p class="text-center text-base leading-6 font-medium text-gray-500">
+                    {{i18n.readingtime}}: <b>
+                        {{ content | readingtime }}
+                        {{i18n.minutes}}
+                    </b>
+                </p>
+            </div>
+            <p class="prose xl:prose-xl lg:prose-lg my-4 mx-auto">
+                <i>{{description}}</i>
             </p>
-            <p class="text-center text-base leading-6 font-medium text-gray-500">
-				{{i18n.readingtime}}: <b> {{ content | readingtime }} {{i18n.minutes}} </b>
-            </p>
+            <article class="prose xl:prose-xl lg:prose-lg my-4 mx-auto">
+                {{ content | safe }}
+            </article>
+
+            {% for writer in authors.authors %}
+                {% if writer.name === author %}
+                    {% include "partials/authorcard_light.njk" %}
+                {% endif %}
+            {% endfor %}
         </div>
-        <p class="prose xl:prose-xl lg:prose-lg my-4 mx-auto"><i>{{description}}</i></p>
-        <article class="prose xl:prose-xl lg:prose-lg my-4 mx-auto">
-            {{ content | safe }}
-        </article>
-        {% for writer in authors.authors %}
-            {% if writer.name === author %}
-                {% include "partials/authorcard_light.njk" %}
-            {% endif %}
-        {% endfor %}
     </div>
-</div>
 {% endblock %}
 
 {% block sidebar %}
-<div class="toc">
-	<h4 class="text-xl font-bold m-2">
-		<img src="/static/img/toc.svg" width="40" class="inline"/> 
-		<span class="">{{i18n.toc}}</span>
-	</h4>
-	<div class="mx-6">
-		<div class="rtoc leading-normal md:leading-relaxed">
-			<ol>
-				<li><a href="#">{{title}}</a></li>
-				{{ content | toc | safe }}
-			</ol>
-		</div>
-	</div>
-<div>
-<script>
+    <div class="toc">
+        <h4 class="text-xl font-bold m-2">
+            <img src="/static/img/toc.svg" width="40" class="inline"/>
+            <span class="">{{i18n.toc}}</span>
+        </h4>
+        <div class="mx-6">
+            <div class="rtoc leading-normal md:leading-relaxed">
+                <ol>
+                    <li>
+                        <a href="#">{{title}}</a>
+                    </li>
+                    {{ content | toc | safe }}
+                </ol>
+            </div>
+        </div>
+        <div>
+            <script>
 
-function init() {
-    
-    const handleTocItemClick = (event) => { 
-        TOCitems.forEach( item => item.className = "");      
-        event.target.className = 'active';
-    }
+                function init() {
 
-    const TOCitems = document.querySelectorAll('.toc li a');
-    TOCitems.forEach( item => item.addEventListener('click', handleTocItemClick));
+                    const handleTocItemClick = (event) => {
+                        TOCitems.forEach(item => item.className = "");
+                        event.target.className = 'active';
+                    }
 
-    /**
-     * calculates the minimum distance of h2 and h3 tags to the given scroll 
+                    const TOCitems = document.querySelectorAll('.toc li a');
+                    TOCitems.forEach(item => item.addEventListener('click', handleTocItemClick));
+
+                    /**
+     * calculates the minimum distance of h2 and h3 tags to the given scroll
      * position and sets "active" class to the element with min distance and a distance < 100
      */
-    const handleScroll = (pos) => {
-        const headings = document.querySelectorAll('h1, h2, h3, h4');
+                    const handleScroll = (pos) => {
+                        const headings = document.querySelectorAll('h1, h2, h3, h4');
 
-        const min = Array.from(headings) // create iterable list from dom selections
-                            .map( item => ({ obj: item, distance: item.offsetTop - pos }) ) // get distance and obj ref
-                            .map( item => item.distance < 0 ? ({...item, distance: item.distance * -1 }) : item) // create vector style values
-                            .reduce( (prev, curr) => prev.distance < curr.distance ? prev : curr) // calculate minimum
-        
-        if (min.distance < 100) {
-            TOCitems.forEach( item => item.className = ""); // remove all classes
-            const TOCitem = Array.from(document.querySelectorAll('.toc li a'))
+                        const min = Array
+                            .from(headings) // create iterable list from dom selections
+                            .map(item => ({
+                                obj: item,
+                                distance: item.offsetTop - pos
+                            })) // get distance and obj ref
+                            .map(
+                                item => item.distance < 0
+                                ? ({
+                                    ...item,
+                                    distance: item.distance * -1
+                                })
+                                : item) // create vector style values
+                            .reduce(
+                                (prev, curr) => prev.distance < curr.distance
+                                ? prev
+                                : curr) // calculate minimum
+
+                        if (min.distance < 100) {
+                            TOCitems.forEach(item => item.className = ""); // remove all classes
+                            const TOCitem = Array
+                                .from(document.querySelectorAll('.toc li a'))
                                 .filter(item => item.href.split('#')[1] === min.obj.id)[0];
-			if(typeof TOCitem !== "undefined") {
-				TOCitem.className = "active";
-			}
-        }
+                            if (typeof TOCitem !== "undefined") {
+                                TOCitem.className = "active";
+                            }
+                        }
 
-    }
+                    }
 
-    let ticking = false;
-    
-    window.addEventListener('scroll', function(e) {
-        const last_known_scroll_position = window.scrollY;
+                    let ticking = false;
 
-        // scroll page event gets fired very often and calculation makes sense 
-        // only on new page renderings. So we wait for the Animation frame for 
-        // better performance.  
-        if (!ticking) {
-            window.requestAnimationFrame(function() {
-                handleScroll(last_known_scroll_position);
-                ticking = false;
-            });
+                    window.addEventListener('scroll', function (e) {
+                        const last_known_scroll_position = window.scrollY;
 
-            ticking = true;
-        }
-    }); 
+                        // scroll page event gets fired very often and calculation makes sense
+                        // only on new page renderings. So we wait for the Animation frame for
+                        // better performance.
+                        if (!ticking) {
+                            window.requestAnimationFrame(function () {
+                                handleScroll(last_known_scroll_position);
+                                ticking = false;
+                            });
 
-    handleScroll(window.scrollY); // fire it once on page load
-}
+                            ticking = true;
+                        }
+                    });
 
-init()
-</script>
-{% endblock %}
+                    handleScroll(window.scrollY); // fire it once on page load
+                }
+
+                init()
+            </script>
+        {% endblock %}

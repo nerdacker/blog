@@ -1,11 +1,5 @@
 module.exports = {
-  purge: {
-    mode: "all",
-    content: ["./**/*.html"],
-    options: {
-      whitelist: [],
-    },
-  },
+  content: ["./**/*.html"],
   theme: {
     container: {
       center: true,
@@ -17,20 +11,20 @@ module.exports = {
     extend: {
       keyframes: {
         slideInUp: {
-         'from': { transform: 'translate3d(0, 100%, 0)', visibility: 'visible' },
-         'to': { transform: 'translate3d(0, 0, 0)' }
-       },
-       slideOutDown : {
-          'from': { transform: 'translate3d(0, 0, 0)'},
-          'to': { transform: 'translate3d(0, 100%, 0)', visibility: 'hidden'}
+          'from': { transform: 'translate3d(0, 100%, 0)', visibility: 'visible' },
+          'to': { transform: 'translate3d(0, 0, 0)' }
         },
-        slideOutRight : {
-          'from': { transform: 'translate3d(0, 0, 0)'},
-          'to': { transform: 'translate3d(100%, 0, 0)', visibility: 'hidden'}
+        slideOutDown: {
+          'from': { transform: 'translate3d(0, 0, 0)' },
+          'to': { transform: 'translate3d(0, 100%, 0)', visibility: 'hidden' }
         },
-        slideInRight : {
-          'from': { transform: 'translate3d(100%, 0, 0)', visibility: 'visible'},
-          'to': { transform: 'translate3d(0, 0, 0)'}
+        slideOutRight: {
+          'from': { transform: 'translate3d(0, 0, 0)' },
+          'to': { transform: 'translate3d(100%, 0, 0)', visibility: 'hidden' }
+        },
+        slideInRight: {
+          'from': { transform: 'translate3d(100%, 0, 0)', visibility: 'visible' },
+          'to': { transform: 'translate3d(0, 0, 0)' }
         }
       },
       animation: {

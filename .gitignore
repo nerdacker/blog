@@ -9,3 +9,4 @@ package-lock.json
 yarn.lock
 .env
 .tmp/
+src/static/js/firebase-credentials.js
